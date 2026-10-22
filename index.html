@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════════════════════════════
+  YAKTY CLEAN · Казань · сборка v9 (index.html, один файл, БЕЗ React и БЕЗ форм)
+  ═══════════════════════════════════════════════════════════════════════════
+  v9 ПО РЕШЕНИЮ ЗАКАЗЧИКА:
+  · Формы заявок УДАЛЕНЫ полностью (квиз, B2B-форма, модалки). Конверсия идёт
+    через телефон 8 (987) 228-34-72 и мессенджер (ссылка включается в
+    SITE_CONFIG.telegram). Все CTA услуг = звонок.
+  · Куки-панель и соглашения ДОБАВЛЕНЫ и заметны: политика ПДн (#/privacy),
+    условия использования (#/terms), согласие на аналитику отдельной кнопкой.
+  · Мобильная версия: чистая сборка без постороннего кода. Если мобильная
+    «сломана» — значит в файле на компьютере смесь кода: замените index.html
+    ЦЕЛИКОМ этим файлом (Ctrl+A → Delete → вставить → Ctrl+S → Ctrl+F5).
+  · Фото из images/ подключаются без переименования (перебор расширений).
+  СТРУКТУРА: yakty-clean-site/index.html + yakty-clean-site/images/…
+  Настройки: Ctrl+F «SITE_CONFIG». Телефон и ИНН 026827183315 вшиты.
+  ВАЖНО: не вставляйте в этот файл React/Tailwind-сниппеты (motion.div и т.п.) —
+  они работают только со сборкой React и ломают страницу, особенно мобильную.
+  ═══════════════════════════════════════════════════════════════════════════
+-->
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>YAKTY CLEAN — клининг и химчистка в Казани: мебель, ковры, авто, квартиры, производства</title>
+<meta name="description" content="YAKTY CLEAN в Казани: химчистка диванов, матрасов, ковров, ковролина и автомобилей; генеральная и поддерживающая уборка, уборка после ремонта и ЧП, производственный клининг. Оборудование Karcher, химия ProBrite, работа по договору. Тел. 8 (987) 228-34-72.">
+<meta name="theme-color" content="#060a12">
+<link rel="canonical" id="canonical" href="">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="YAKTY CLEAN">
+<meta property="og:title" content="YAKTY CLEAN — клининг и химчистка в Казани">
+<meta property="og:description" content="Химчистка мебели, ковров и авто. Уборка квартир, домов и производств. Стоимость фиксируем до начала работ. 8 (987) 228-34-72.">
+<meta property="og:url" content="" id="ogurl">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23060a12'/%3E%3Cpath d='M13 16l9 13v10h-7V29L7 16h6zm20 0l9 13v10h-7V29L27 16h6z' fill='%234d9dff'/%3E%3Ccircle cx='45' cy='47' r='7' fill='none' stroke='%23fff' stroke-width='3.2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter-tight@5/600.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter-tight@5/700.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter-tight@5/800.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/golos-text@5/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/golos-text@5/500.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/golos-text@5/600.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"YAKTY CLEAN","telephone":"+79872283472","description":"Клининг и химчистка в Казани: химчистка мягкой мебели, ковров, ковролина и автомобилей; генеральная и поддерживающая уборка, уборка после ремонта и ЧП, производственный клининг.","areaServed":{"@type":"City","name":"Казань"},"knowsAbout":["Химчистка диванов","Химчистка матрасов","Химчистка ковров","Химчистка ковролина","Химчистка автомобилей","Генеральная уборка","Поддерживающая уборка","Уборка после ремонта","Уборка после ЧП","Производственный клининг"],"url":"https://yakty.ru"}
+</script>
+<style>
+/* ДИЗАЙН-СИСТЕМА «Tech Premium» · mobile-first · белый/графит/электрик-синий */
+:root{
+  --bg:#ffffff; --bg2:#f4f7fb; --bg3:#eaf1fa;
+  --ink:#0a0f16; --ink2:#141b26; --dark:#060a12; --dark2:#0c1420;
+  --grey:#5b6472; --grey2:#8b94a3; --grey3:#b9c2cf;
+  --blue:#0a6cff; --blue-d:#0050d0; --blue-l:#4d9dff; --sky:#dcecff;
+  --line:#e5eaf1; --line-d:rgba(255,255,255,.12);
+  --fd:'Inter Tight',system-ui,sans-serif;
+  --fb:'Golos Text',system-ui,sans-serif;
+  --fl:'Montserrat',Arial,sans-serif;
+  --ez:cubic-bezier(.2,.7,.2,1);
+  --pad:clamp(18px,4.5vw,48px);
+  --sh:0 14px 40px rgba(10,108,255,.12);
+  --sh-ink:0 18px 50px rgba(6,10,18,.14);
+  --hh:64px;
+}
+@media(min-width:768px){:root{--hh:78px}}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 16px);-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16.5px/1.6 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:clip;max-width:100%}
+body.lock{overflow:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;touch-action:manipulation}
+h1,h2,h3,h4{margin:0;font-family:var(--fd);text-wrap:balance;overflow-wrap:break-word}
+p{margin:0;text-wrap:pretty;overflow-wrap:break-word}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font:inherit;color:inherit;touch-action:manipulation}
+::selection{background:var(--blue);color:#fff}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.dark :focus-visible,.mmenu :focus-visible{outline-color:var(--blue-l)}
+body::after{content:"";position:fixed;inset:0;z-index:140;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")}
+.skip{position:absolute;left:-999px;top:0;z-index:300;background:var(--blue);color:#fff;padding:12px 20px;font-weight:700;border-radius:0 0 10px 0}
+.skip:focus{left:0}
+.wrap{width:min(1240px,100% - calc(var(--pad)*2));margin-inline:auto;min-width:0}
+section{scroll-margin-top:calc(var(--hh) + 16px)}
+.sec{padding-block:clamp(52px,7vw,104px);position:relative}
+.dark{background:var(--dark);color:#fff}
+.ov{display:inline-flex;align-items:center;gap:9px;font:600 12px/1 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.ov::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(10,108,255,.15);flex:none}
+.dark .ov{color:var(--blue-l)}
+.dark .ov::before{background:var(--blue-l);box-shadow:0 0 0 4px rgba(77,157,255,.18)}
+.h2{font-weight:800;font-size:clamp(26px,6.4vw,54px);line-height:1.06;letter-spacing:-.025em;margin-top:12px}
+@media(min-width:768px){.h2{font-size:clamp(30px,4.4vw,54px)}}
+.lead{color:var(--grey);font-size:clamp(15px,1.5vw,18px);max-width:58ch;margin-top:13px}
+.dark .lead{color:var(--grey2)}
+/* кнопки */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:15px 26px;border-radius:12px;border:1.5px solid transparent;background:var(--blue);color:#fff;font:600 15.5px/1.2 var(--fb);cursor:pointer;text-decoration:none;white-space:nowrap;overflow:hidden;transition:transform .22s var(--ez),box-shadow .22s var(--ez),background .18s,border-color .18s,color .18s}
+.btn::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .55s var(--ez)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(10,108,255,.35)}
+.btn:hover::after{left:130%}
+.btn:active{transform:translateY(0);box-shadow:0 6px 16px rgba(10,108,255,.25)}
+.btn--ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn--ghost:hover{border-color:var(--blue);color:var(--blue);box-shadow:0 10px 26px rgba(10,108,255,.14)}
+.dark .btn--ghost{border-color:var(--line-d);color:#fff}
+.dark .btn--ghost:hover{border-color:var(--blue-l);color:var(--blue-l);box-shadow:0 10px 26px rgba(77,157,255,.2)}
+.btn--sm{min-height:48px;padding:12px 20px;font-size:14px;border-radius:10px}
+.btn .ar{width:16px;height:16px;transition:transform .25s var(--ez);flex:none}
+.btn:hover .ar{transform:translate(3px,-3px)}
+.btn .ic{width:18px;height:18px;flex:none}
+/* телефон */
+.tel{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-weight:700;letter-spacing:-.01em;text-decoration:none;color:var(--ink);min-width:0}
+.tel i{width:44px;height:44px;flex:none;border-radius:12px;background:var(--sky);color:var(--blue);display:grid;place-items:center;transition:transform .25s var(--ez),background .2s,color .2s}
+.tel i svg{width:18px;height:18px}
+.tel:hover i{transform:rotate(-12deg) scale(1.06);background:var(--blue);color:#fff}
+.tel b{font-size:clamp(16px,1.7vw,21px);border-bottom:2px solid transparent;transition:border-color .2s;white-space:nowrap}
+.tel:hover b{border-color:var(--blue)}
+.dark .tel{color:#fff}
+.dark .tel i{background:rgba(77,157,255,.16);color:var(--blue-l)}
+/* шапка */
+.hdr{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.88);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+.hdr.scrolled{border-color:var(--line);box-shadow:0 8px 30px rgba(6,10,18,.06)}
+.hdr-in{display:flex;align-items:center;gap:clamp(12px,2vw,32px);height:var(--hh);transition:height .3s var(--ez)}
+.hdr.scrolled{--hh:56px}
+@media(min-width:768px){.hdr.scrolled{--hh:66px}}
+.logo{display:flex;align-items:flex-end;gap:9px;text-decoration:none;flex:none;line-height:1}
+.logo-w{display:flex;flex-direction:column}
+.logo-y{font:800 clamp(19px,2.1vw,27px)/1 var(--fl);letter-spacing:.01em;color:var(--ink)}
+.logo-c{font:500 clamp(9.5px,1.05vw,13.5px)/1 var(--fl);letter-spacing:.42em;color:var(--grey2);margin-top:6px}
+.logo-i{height:clamp(28px,3.1vw,40px);width:auto;color:var(--ink);margin-bottom:-2px;flex:none}
+.mmenu .logo-y,.dark .logo-y{color:#fff}
+.mmenu .logo-i,.dark .logo-i{color:#fff}
+.nav{display:flex;gap:clamp(14px,1.7vw,26px);margin-left:auto}
+.nav a{font:500 14.5px/1 var(--fb);text-decoration:none;color:var(--grey);padding:10px 2px;position:relative;transition:color .2s}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:4px;height:2px;background:var(--blue);border-radius:2px;transition:right .3s var(--ez)}
+.nav a:hover{color:var(--ink)}
+.nav a:hover::after{right:0}
+@media(max-width:1080px){.nav{display:none}}
+.hdr-r{display:flex;align-items:center;gap:12px;margin-left:auto;min-width:0}
+@media(min-width:1081px){.hdr-r{margin-left:0}}
+.hdr .tel b{font-size:15.5px}
+.hdr .tel i{width:38px;height:38px;border-radius:10px}
+@media(max-width:767px){.hdr-r .btn,.hdr-r .tel{display:none}}
+.burger{display:none;width:48px;height:48px;border:1.5px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;place-items:center;flex:none;transition:border-color .2s}
+.burger:hover{border-color:var(--blue)}
+.burger svg{width:21px;height:21px}
+.burger .x{display:none}
+.burger.open .x{display:block}
+.burger.open .m{display:none}
+@media(max-width:1080px){.burger{display:grid}}
+/* меню */
+.mmenu{position:fixed;inset:0;background:var(--dark);color:#fff;z-index:95;transform:translateY(100%);transition:transform .5s var(--ez);display:flex;flex-direction:column;padding:16px var(--pad) calc(20px + env(safe-area-inset-bottom));overflow-y:auto;overscroll-behavior:contain;visibility:hidden}
+.mmenu.open{transform:none;visibility:visible}
+.mmenu-h{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--line-d)}
+.mmenu-x{width:48px;height:48px;border-radius:12px;border:1.5px solid var(--line-d);background:none;color:#fff;cursor:pointer;font-size:18px}
+.mmenu nav{display:flex;flex-direction:column;margin-top:4px}
+.mmenu a.ml{font:700 clamp(21px,6.4vw,30px)/1.12 var(--fd);letter-spacing:-.02em;text-decoration:none;padding:15px 0;border-bottom:1px solid var(--line-d);opacity:0;transform:translateY(16px);transition:opacity .45s var(--ez),transform .45s var(--ez);display:flex;align-items:baseline;gap:12px;min-height:48px}
+.mmenu a.ml s{text-decoration:none;font:600 12px/1 var(--fb);color:var(--blue-l)}
+.mmenu.open a.ml{opacity:1;transform:none}
+.mmenu.open a.ml:nth-child(1){transition-delay:.07s}.mmenu.open a.ml:nth-child(2){transition-delay:.12s}
+.mmenu.open a.ml:nth-child(3){transition-delay:.17s}.mmenu.open a.ml:nth-child(4){transition-delay:.22s}
+.mmenu.open a.ml:nth-child(5){transition-delay:.27s}.mmenu.open a.ml:nth-child(6){transition-delay:.32s}
+.mmenu .mfoot{margin-top:auto;padding-top:22px;display:flex;flex-direction:column;gap:12px}
+/* HERO */
+.hero{position:relative;overflow:hidden;padding-top:clamp(28px,5vw,72px);padding-bottom:clamp(34px,4.5vw,64px);background:
+  radial-gradient(900px 480px at 88% -10%,rgba(10,108,255,.14),transparent 60%),
+  radial-gradient(700px 420px at -10% 30%,rgba(77,157,255,.12),transparent 60%),var(--bg)}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(10,108,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(10,108,255,.055) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(80% 70% at 50% 30%,#000 30%,transparent 100%);pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;pointer-events:none;animation:fl 14s ease-in-out infinite alternate}
+.orb--1{width:340px;height:340px;background:rgba(10,108,255,.22);top:-120px;right:-70px}
+.orb--2{width:280px;height:280px;background:rgba(77,157,255,.18);bottom:-100px;left:-90px;animation-delay:-6s}
+@media(min-width:960px){.orb--1{width:420px;height:420px}.orb--2{width:340px;height:340px}}
+@keyframes fl{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-40px,30px,0) scale(1.12)}}
+.hero-grid{position:relative;display:grid;grid-template-columns:1fr;gap:clamp(24px,3.6vw,64px)}
+@media(min-width:960px){.hero-grid{grid-template-columns:1.06fr .94fr;align-items:center}}
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:7px;font:600 11.5px/1 var(--fb);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 13px;box-shadow:0 4px 14px rgba(6,10,18,.06)}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 3px rgba(10,108,255,.15);flex:none}
+.badge--b i{background:var(--ink);box-shadow:0 0 0 3px rgba(6,10,18,.1)}
+.hero h1{font-weight:800;font-size:clamp(30px,8.4vw,74px);line-height:1.04;letter-spacing:-.03em;margin:16px 0 0}
+@media(min-width:960px){.hero h1{font-size:clamp(40px,4.9vw,74px)}}
+.hero h1 .scr{color:var(--blue)}
+.hero-sub{color:var(--grey);font-size:clamp(15px,4vw,18.5px);max-width:48ch;margin-top:14px}
+@media(min-width:768px){.hero-sub{font-size:clamp(15px,1.5vw,18.5px)}}
+.hero-cta{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+@media(min-width:640px){.hero-cta{flex-direction:row;flex-wrap:wrap;gap:12px}}
+.hero-cta .btn{width:100%}
+@media(min-width:640px){.hero-cta .btn{width:auto}}
+.hero-alt{margin-top:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hero-alt small{color:var(--grey2);font-size:12.5px;max-width:24ch}
+.chips{display:flex;gap:8px;overflow-x:auto;margin-top:18px;padding-bottom:6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+@media(min-width:960px){.chips{flex-wrap:wrap;overflow-x:visible}}
+.chip{flex:none;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:12px 16px;font:600 13.5px/1 var(--fb);cursor:pointer;transition:border-color .2s,color .2s,transform .2s;min-height:44px;text-decoration:none;display:inline-flex;align-items:center}
+.chip:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-1px)}
+.hero-vis{position:relative;max-width:600px;min-width:0}
+/* фоторамки */
+.ph{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(160deg,#f7fafd,#e8eef7);aspect-ratio:3/2;box-shadow:var(--sh-ink)}
+.ph>img,.seg .art>img,.case .art>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.noimg::before{content:"Фото готовится";position:absolute;inset:0;z-index:1;display:grid;place-items:center;font:600 12px/1 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--grey2);background:repeating-linear-gradient(45deg,rgba(10,108,255,.07) 0 12px,transparent 12px 24px)}
+.ph .cap{position:absolute;left:12px;bottom:12px;right:12px;z-index:2;background:rgba(255,255,255,.93);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:12px;padding:10px 13px;font:500 12px/1.35 var(--fb);color:var(--grey)}
+.ph .cap b{color:var(--ink);display:block;font-size:13px;font-weight:600}
+.float{position:absolute;z-index:3;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:10px 13px;box-shadow:var(--sh-ink);display:flex;gap:9px;align-items:center;font:600 12px/1.35 var(--fb);animation:fl 9s ease-in-out infinite alternate}
+.float i{width:32px;height:32px;flex:none;border-radius:9px;background:var(--sky);color:var(--blue);display:grid;place-items:center}
+.float i svg{width:16px;height:16px}
+.float--1{top:12px;right:12px}
+.float--2{bottom:64px;left:12px;animation-delay:-4s}
+@media(max-width:400px){.float--2{display:none}}
+@media(min-width:960px){.float--1{top:18px;right:-10px}.float--2{bottom:22px;left:-14px;display:flex}}
+/* траст */
+.trust{margin-top:clamp(28px,4.4vw,58px);border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.72);backdrop-filter:blur(8px);overflow:hidden}
+.trust ul{display:grid;grid-template-columns:1fr 1fr}
+@media(min-width:900px){.trust ul{grid-template-columns:repeat(4,1fr)}}
+.trust li{padding:14px 15px;display:flex;gap:10px;border-top:1px solid var(--line);min-width:0}
+.trust li:nth-child(-n+2){border-top:0}
+.trust li:nth-child(even){border-left:1px solid var(--line)}
+@media(min-width:900px){
+  .trust li{padding:18px 20px;border-top:0;border-left:1px solid var(--line)}
+  .trust li:first-child{border-left:0}
+}
+.trust i{width:34px;height:34px;flex:none;border-radius:10px;background:var(--sky);color:var(--blue);display:grid;place-items:center}
+.trust i svg{width:17px;height:17px}
+.trust b{display:block;font:600 13.5px/1.3 var(--fb)}
+.trust span{color:var(--grey);font-size:11.8px}
+@media(min-width:900px){.trust b{font-size:14px}.trust span{font-size:12.5px}}
+/* тикер */
+.ticker{background:var(--dark);color:#fff;padding:13px 0;overflow:hidden}
+.tk{display:flex;width:max-content;animation:tick 44s linear infinite}
+.tk span{display:flex;align-items:center;gap:30px;padding-right:30px;font:600 clamp(10.5px,1.2vw,13.5px)/1 var(--fd);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.tk span::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--blue-l);flex:none;box-shadow:0 0 12px var(--blue-l)}
+@keyframes tick{to{transform:translateX(-50%)}}
+/* сегменты */
+.segs{display:grid;grid-template-columns:1fr;gap:14px;margin-top:clamp(26px,3.6vw,48px)}
+@media(min-width:860px){.segs{grid-template-columns:1fr 1fr;gap:clamp(14px,1.8vw,24px)}}
+.seg{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:300px;border-radius:20px;overflow:hidden;text-decoration:none;color:#fff;background:var(--dark2);padding:clamp(18px,2.4vw,32px);border:1px solid var(--line-d);min-width:0}
+@media(min-width:860px){.seg{min-height:clamp(330px,32vw,480px)}}
+.seg .art{position:absolute;inset:0;transition:transform .9s var(--ez);background:var(--dark2)}
+.seg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,18,.05) 30%,rgba(6,10,18,.92) 80%)}
+.seg:hover .art{transform:scale(1.05)}
+.seg>*{position:relative;z-index:2}
+.seg .k{font:600 11px/1 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--blue-l)}
+.seg h3{font-weight:800;font-size:clamp(22px,6vw,38px);letter-spacing:-.02em;margin:9px 0 8px}
+.seg p{color:rgba(255,255,255,.78);font-size:14px;max-width:44ch}
+.seg ul{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+.seg ul li{font:500 11.5px/1 var(--fb);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 11px}
+.seg .go{position:absolute;top:16px;right:16px;z-index:2;width:50px;height:50px;border-radius:15px;background:var(--blue);color:#fff;display:grid;place-items:center;transition:transform .3s var(--ez);box-shadow:0 10px 26px rgba(10,108,255,.4)}
+.seg:hover .go{transform:rotate(45deg)}
+.seg .go svg{width:18px;height:18px}
+.seg--home{background:linear-gradient(160deg,#123a7a,#0a6cff 130%)}
+/* услуги */
+.srv-grid{display:grid;grid-template-columns:1fr;gap:13px;margin-top:clamp(24px,3.4vw,46px)}
+@media(min-width:760px){.srv-grid{grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.6vw,22px)}}
+.srv{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(18px,2.2vw,30px);display:flex;flex-direction:column;gap:11px;transition:transform .3s var(--ez),box-shadow .3s var(--ez),border-color .3s;overflow:hidden;min-width:0}
+.srv::before{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue-l));transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ez)}
+.srv:hover{transform:translateY(-5px);box-shadow:var(--sh);border-color:rgba(10,108,255,.35)}
+.srv:hover::before{transform:scaleX(1)}
+.srv .ic{width:48px;height:48px;border-radius:14px;background:var(--sky);color:var(--blue);display:grid;place-items:center;transition:transform .3s var(--ez)}
+.srv:hover .ic{transform:scale(1.08) rotate(-6deg)}
+.srv .ic svg{width:23px;height:23px}
+.srv h3{font-weight:700;font-size:clamp(17px,4.4vw,22px);letter-spacing:-.015em}
+.srv p{color:var(--grey);font-size:14.3px;flex:1}
+.srv .lnk{display:inline-flex;align-items:center;gap:8px;font:600 14.5px/1 var(--fb);color:var(--blue);background:none;border:0;padding:6px 0;cursor:pointer;min-height:44px;text-decoration:none}
+.srv .lnk svg{width:15px;height:15px;transition:transform .25s var(--ez)}
+.srv .lnk:hover svg{transform:translate(3px,-3px)}
+.note{margin-top:18px;font-size:13.3px;color:var(--grey);border-left:3px solid var(--blue);padding-left:13px;max-width:66ch}
+.dark .note{color:var(--grey2);border-color:var(--blue-l)}
+/* химчистка */
+.chem{display:grid;grid-template-columns:1fr;gap:clamp(24px,3.6vw,64px);margin-top:clamp(24px,3.4vw,50px);align-items:start}
+@media(min-width:960px){.chem{grid-template-columns:.95fr 1.05fr}.chem-l{position:sticky;top:calc(var(--hh) + 24px)}}
+.chem .ph{margin-top:22px}
+.chem-r{display:flex;flex-direction:column;gap:11px;min-width:0}
+.cc{display:grid;grid-template-columns:46px 1fr auto;gap:13px;align-items:center;background:var(--dark2);border:1px solid var(--line-d);border-radius:16px;padding:15px 16px;transition:border-color .25s,transform .25s var(--ez),background .25s}
+@media(min-width:640px){.cc{grid-template-columns:52px 1fr auto;gap:16px;padding:18px 20px}}
+.cc:hover{border-color:rgba(77,157,255,.5);transform:translateX(5px);background:#0e1826}
+.cc .ic{width:44px;height:44px;border-radius:13px;background:rgba(77,157,255,.15);color:var(--blue-l);display:grid;place-items:center}
+@media(min-width:640px){.cc .ic{width:50px;height:50px;border-radius:14px}}
+.cc .ic svg{width:22px;height:22px}
+.cc h3{font-weight:700;font-size:16px;letter-spacing:-.01em}
+.cc p{color:var(--grey2);font-size:13px;margin-top:4px;max-width:46ch}
+.cc .cbtn{width:46px;height:46px;border-radius:13px;border:1.5px solid var(--line-d);background:none;color:#fff;cursor:pointer;display:grid;place-items:center;transition:.25s var(--ez);text-decoration:none}
+.cc .cbtn svg{width:16px;height:16px}
+.cc:hover .cbtn{background:var(--blue);border-color:var(--blue);transform:rotate(45deg)}
+/* бизнес */
+.biz-grid{display:grid;grid-template-columns:1fr;gap:clamp(24px,3.2vw,56px);margin-top:clamp(24px,3.4vw,50px);align-items:start}
+@media(min-width:980px){.biz-grid{grid-template-columns:1.02fr .98fr}}
+.objs{display:grid;grid-template-columns:1fr;gap:11px}
+@media(min-width:560px){.objs{grid-template-columns:1fr 1fr}}
+.obj{background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px;transition:transform .25s var(--ez),box-shadow .25s,border-color .25s;min-width:0}
+.obj:hover{transform:translateY(-4px);box-shadow:var(--sh);border-color:rgba(10,108,255,.35)}
+.obj .ic{width:40px;height:40px;border-radius:11px;background:var(--sky);color:var(--blue);display:grid;place-items:center;margin-bottom:10px}
+.obj .ic svg{width:20px;height:20px}
+.obj h3{font:600 15px/1.35 var(--fb)}
+.obj p{font-size:12.6px;color:var(--grey);margin-top:5px}
+.fmts{margin-top:16px;display:flex;flex-direction:column}
+.fmts li{display:flex;gap:12px;align-items:baseline;padding:12px 2px;border-top:1px solid var(--line);font-size:14.2px;color:var(--grey)}
+.fmts li b{font:700 12px/1 var(--fd);color:var(--blue);flex:none}
+/* карточка контакта (вместо формы) */
+.ccard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:clamp(20px,2.6vw,34px);box-shadow:var(--sh-ink);min-width:0}
+@media(min-width:980px){.ccard{position:sticky;top:calc(var(--hh) + 24px)}}
+.ccard h3{font-weight:800;font-size:clamp(19px,5vw,25px);letter-spacing:-.02em}
+.ccard .csub{color:var(--grey);font-size:13.6px;margin:8px 0 18px}
+.csteps{display:flex;flex-direction:column;gap:0;margin:0 0 18px}
+.csteps li{display:flex;gap:13px;padding:11px 0;border-top:1px solid var(--line);font-size:14px;color:var(--grey)}
+.csteps li:first-child{border-top:0}
+.csteps b{font:700 12px/1.6 var(--fd);color:var(--blue);flex:none;width:22px}
+.ccard .tel b{font-size:clamp(19px,4.6vw,26px)}
+.ccard .tel i{width:48px;height:48px;border-radius:14px}
+.ccard .row{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.ccard .docline{margin-top:14px;font-size:12.4px;color:var(--grey2)}
+.ccard .docline a{color:var(--blue);font-weight:600;text-decoration:none}
+/* why + факты */
+.why{display:grid;grid-template-columns:1fr;gap:12px;margin-top:clamp(24px,3.4vw,48px)}
+@media(min-width:640px){.why{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.why{grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,22px)}}
+.why li{background:var(--dark2);border:1px solid var(--line-d);border-radius:18px;padding:22px 20px;transition:transform .3s var(--ez),border-color .3s;min-width:0}
+.why li:hover{transform:translateY(-5px);border-color:rgba(77,157,255,.5)}
+.why .num{font:800 38px/1 var(--fd);color:transparent;-webkit-text-stroke:1.5px var(--blue-l)}
+.why h3{font-weight:700;font-size:17px;letter-spacing:-.01em;margin:13px 0 9px}
+.why p{font-size:13.6px;color:var(--grey2)}
+.facts{display:grid;grid-template-columns:1fr;gap:11px;margin-top:14px}
+@media(min-width:640px){.facts{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.facts{grid-template-columns:repeat(5,1fr)}}
+.facts li{border:1px solid var(--line-d);border-radius:14px;padding:16px;display:flex;gap:11px;align-items:flex-start;background:rgba(255,255,255,.03);min-width:0}
+.facts i{width:34px;height:34px;flex:none;border-radius:10px;background:rgba(77,157,255,.16);color:var(--blue-l);display:grid;place-items:center}
+.facts i svg{width:17px;height:17px}
+.facts b{display:block;font:600 13.5px/1.3 var(--fb);color:#fff}
+.facts span{font-size:11.8px;color:var(--grey2)}
+/* скроллеры */
+.scr-head{display:flex;align-items:flex-end;gap:14px;margin-top:clamp(22px,3vw,40px);flex-wrap:wrap}
+.scr-btns{margin-left:auto;display:flex;gap:9px;flex:none}
+.scr-btns button{width:48px;height:48px;border-radius:14px;border:1.5px solid var(--line);background:#fff;cursor:pointer;display:grid;place-items:center;transition:.2s}
+.scr-btns button svg{width:16px;height:16px}
+.scr-btns button:hover:not([disabled]){background:var(--blue);border-color:var(--blue);color:#fff}
+.scr-btns button[disabled]{opacity:.35;cursor:default}
+.scr{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 18px;margin-top:14px;scrollbar-width:thin}
+.scr::-webkit-scrollbar{height:6px}
+.scr::-webkit-scrollbar-thumb{background:var(--grey3);border-radius:99px}
+.scr>*{scroll-snap-align:start;flex:0 0 auto;width:min(420px,86vw)}
+.case{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;display:flex;flex-direction:column;transition:transform .3s var(--ez),box-shadow .3s}
+.case:hover{transform:translateY(-4px);box-shadow:var(--sh-ink)}
+.case .art{aspect-ratio:16/10;border-bottom:1px solid var(--line);position:relative;background:linear-gradient(155deg,#f2f7fd,#e3ebf6)}
+.case-in{padding:18px;display:flex;flex-direction:column;gap:9px;flex:1;min-width:0}
+.case .tp{font:600 10.5px/1 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--blue);align-self:flex-start;padding:7px 10px;border-radius:7px}
+.case h3{font:600 16px/1.4 var(--fb)}
+.case p{font-size:13.4px;color:var(--grey)}
+.case p b{color:var(--ink)}
+/* отзывы */
+.rev{border:1px solid var(--line);border-radius:18px;background:#fff;padding:21px;display:flex;flex-direction:column;gap:14px;position:relative;transition:transform .3s var(--ez),box-shadow .3s;min-width:0}
+.rev:hover{transform:translateY(-4px);box-shadow:var(--sh-ink)}
+.rev .q{position:absolute;top:17px;right:18px;width:34px;height:34px;color:var(--sky)}
+.rev .txt{font-size:14.6px;line-height:1.7;color:#2a3240;flex:1}
+.rev .who{display:flex;align-items:center;gap:11px;border-top:1px solid var(--line);padding-top:12px;flex-wrap:wrap}
+.rev .av{width:42px;height:42px;border-radius:50%;background:var(--sky);color:var(--blue);font:700 15px/1 var(--fb);display:grid;place-items:center;flex:none}
+.rev .nm{font:600 14px/1.3 var(--fb)}
+.rev .mt{font-size:11.6px;color:var(--grey2)}
+.rev .sv{font:600 10.5px/1.3 var(--fb);letter-spacing:.06em;text-transform:uppercase;color:var(--blue);background:var(--sky);border-radius:999px;padding:6px 10px}
+@media(min-width:480px){.rev .sv{margin-left:auto;text-align:center;max-width:130px}}
+/* процесс */
+.proc{display:grid;grid-template-columns:1fr;gap:16px;margin-top:clamp(26px,3.8vw,54px);position:relative}
+@media(min-width:900px){.proc{grid-template-columns:repeat(5,1fr);gap:0}.proc::before{content:"";position:absolute;top:26px;left:5%;right:5%;height:2px;background:linear-gradient(90deg,var(--blue),var(--blue-l));opacity:.35}}
+.proc li{position:relative;display:grid;grid-template-columns:52px 1fr;gap:15px;align-items:start;text-align:left}
+@media(min-width:900px){.proc li{display:block;padding:0 clamp(8px,1.2vw,18px);text-align:center}}
+.proc .dot{width:52px;height:52px;border-radius:16px;background:#fff;border:2px solid var(--blue);color:var(--blue);display:grid;place-items:center;font:800 16px/1 var(--fd);position:relative;z-index:2;box-shadow:0 8px 22px rgba(10,108,255,.2);transition:transform .3s var(--ez),background .2s,color .2s}
+@media(min-width:900px){.proc .dot{margin:0 auto}}
+.proc li:hover .dot{transform:scale(1.1) rotate(-4deg);background:var(--blue);color:#fff}
+.proc b{display:block;font:600 15px/1.3 var(--fb);margin:2px 0 6px}
+@media(min-width:900px){.proc b{margin:14px 0 7px}}
+.proc span{font-size:12.6px;color:var(--grey)}
+/* FAQ */
+.faq{display:grid;grid-template-columns:1fr;gap:clamp(24px,3.6vw,64px);margin-top:clamp(22px,3vw,44px);align-items:start}
+@media(min-width:960px){.faq{grid-template-columns:.85fr 1.15fr}.faq-l{position:sticky;top:calc(var(--hh) + 24px)}}
+.faq-l .box{border:1px solid var(--line);border-radius:16px;background:#fff;padding:20px;margin-top:16px;box-shadow:var(--sh-ink)}
+.faq-l .box p{font-size:13.6px;color:var(--grey);margin:8px 0 14px}
+.acc-i{border-top:1px solid var(--line)}
+.acc-i:last-child{border-bottom:1px solid var(--line)}
+.acc-b{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 4px;background:none;border:0;cursor:pointer;text-align:left;font:600 clamp(14.5px,3.9vw,16.5px)/1.45 var(--fb);min-height:48px}
+.acc-b .pm{flex:none;width:34px;height:34px;border-radius:10px;background:var(--sky);color:var(--blue);display:grid;place-items:center;transition:transform .3s var(--ez),background .2s,color .2s}
+.acc-b .pm svg{width:13px;height:13px}
+.acc-i.open .pm{transform:rotate(45deg);background:var(--blue);color:#fff}
+.acc-p{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ez)}
+.acc-i.open .acc-p{grid-template-rows:1fr}
+.acc-p>div{overflow:hidden}
+.acc-p p{padding:0 40px 18px 4px;color:var(--grey);font-size:14.2px;max-width:64ch}
+/* CTA */
+.cta{position:relative;overflow:hidden;background:radial-gradient(800px 400px at 80% 0%,rgba(10,108,255,.28),transparent 60%),radial-gradient(600px 380px at 10% 100%,rgba(77,157,255,.2),transparent 60%),var(--dark)}
+.cta h2{font-weight:800;font-size:clamp(27px,7vw,64px);line-height:1.05;letter-spacing:-.03em;max-width:22ch}
+.cta-row{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+@media(min-width:640px){.cta-row{flex-direction:row;flex-wrap:wrap;gap:14px}}
+.cta-row .btn{width:100%}
+@media(min-width:640px){.cta-row .btn{width:auto}}
+.cta-tel{margin-top:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.cta-tel .tel b{font-size:clamp(19px,5.6vw,32px)}
+.cta-tel .tel i{width:50px;height:50px;border-radius:15px}
+.cta-tel small{color:var(--grey2);font-size:12.6px;max-width:26ch}
+/* подвал */
+.ftr{background:var(--dark);color:#fff;padding-top:clamp(36px,5vw,70px);overflow:hidden}
+.ftr-mark{font:800 clamp(32px,11vw,180px)/0.95 var(--fd);letter-spacing:-.03em;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.16);user-select:none;white-space:nowrap}
+.ftr-grid{display:grid;grid-template-columns:1fr;gap:clamp(22px,3vw,44px);padding:clamp(26px,3.6vw,50px) 0;border-top:1px solid var(--line-d);margin-top:clamp(18px,2.6vw,36px)}
+@media(min-width:640px){.ftr-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:960px){.ftr-grid{grid-template-columns:1.25fr .8fr .95fr 1fr}}
+.ftr h4{font:600 11.5px/1 var(--fb);letter-spacing:.18em;text-transform:uppercase;color:var(--grey2);margin-bottom:14px}
+.ftr ul li{margin-bottom:9px}
+.ftr ul a{font-size:14px;text-decoration:none;color:rgba(255,255,255,.82)}
+.ftr ul a:hover{color:var(--blue-l)}
+.ftr .about{color:var(--grey2);font-size:13.2px;margin-top:12px;max-width:36ch}
+.ftr-bot{border-top:1px solid var(--line-d);padding:16px 0;display:flex;gap:10px 20px;flex-wrap:wrap;font-size:12.2px;color:var(--grey2);align-items:center}
+.ftr-bot a{color:var(--grey2)}
+.ftr-bot a:hover{color:var(--blue-l)}
+.ftr-bot .studio{color:rgba(255,255,255,.66)}
+.ftr-bot .studio b{color:var(--blue-l);font-weight:600}
+/* нижняя панель */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(6,10,18,.95);backdrop-filter:blur(14px);border-top:1px solid var(--line-d);transform:translateY(102%);transition:transform .35s var(--ez)}
+.bar.show{transform:none}
+.bar .btn{flex:1;min-height:50px}
+.bar .btn--call{background:transparent;border-color:var(--line-d);color:#fff}
+@media(max-width:767px){.bar{display:flex}body.has-bar{padding-bottom:74px}}
+/* cookie */
+.cookie{position:fixed;right:16px;bottom:16px;z-index:75;width:min(400px,calc(100vw - 32px));background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--sh-ink);display:none}
+.cookie.show{display:block;animation:pop .35s var(--ez)}
+body.has-bar .cookie{bottom:84px}
+@media(min-width:768px){body.has-bar .cookie{bottom:16px}}
+.cookie p{font-size:12.6px;color:var(--grey)}
+.cookie .row{display:flex;gap:9px;margin-top:12px;flex-wrap:wrap}
+.cookie .docs{margin-top:10px;font-size:11.8px;color:var(--grey2)}
+.cookie .docs a{color:var(--blue);font-weight:600;text-decoration:none}
+@keyframes pop{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* маршруты */
+.route{display:none;padding-block:clamp(34px,5.4vw,76px)}
+body[data-route] #landing{display:none}
+body[data-route] .bar{display:none!important}
+body[data-route="privacy"] #route-privacy{display:block}
+body[data-route="terms"] #route-terms{display:block}
+body[data-route="owner"] #route-owner{display:block}
+.doc{max-width:840px}
+.doc h2{font-weight:800;font-size:clamp(22px,6vw,36px);letter-spacing:-.02em}
+.doc h3{font:600 16px/1.4 var(--fb);margin:22px 0 8px}
+.doc p,.doc li{font-size:14.3px;color:var(--grey);margin-bottom:10px;line-height:1.7}
+.doc ol{padding-left:20px}.doc ol li{list-style:decimal}
+.fill{background:var(--sky);border-bottom:2px solid var(--blue);color:var(--ink);font-weight:600;padding:0 4px;border-radius:3px}
+.doc pre{background:var(--dark);color:var(--blue-l);border-radius:12px;padding:15px;overflow:auto;font-size:12.2px;line-height:1.6;margin:12px 0;white-space:pre-wrap}
+.card-doc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:14px;box-shadow:var(--sh-ink)}
+.check li{position:relative;padding-left:30px;margin-bottom:10px}
+.check li::before{content:"";position:absolute;left:0;top:2px;width:18px;height:18px;border:2px solid var(--blue);border-radius:5px}
+.back-lnk{display:inline-flex;gap:8px;align-items:center;font-weight:600;text-decoration:none;margin-bottom:22px;color:var(--blue);min-height:44px}
+/* появление */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ez),transform .7s var(--ez)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+  .rv{opacity:1;transform:none}
+  .tk{animation:none}
+  .mmenu a.ml{opacity:1;transform:none}
+  .orb,.float{animation:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержанию</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="i-vac" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 112h34"/><path d="M25 110 52 44"/><path d="M52 44c0-16 8-26 20-26 10 0 16 7 16 15 0 9-7 13-7 21"/><path d="M74 62h26a12 12 0 0 1 12 12v18H62V74a12 12 0 0 1 12-12Z"/><circle cx="98" cy="98" r="10"/><circle cx="98" cy="98" r="3"/><path d="M70 74c6 5 14 5 20 0" stroke-width="5" opacity=".55"/></g></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></g></symbol>
+<symbol id="i-arr-r" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="M13 6l6 6-6 6"/></g></symbol>
+<symbol id="i-arr-l" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5"/><path d="M11 6l-6 6 6 6"/></g></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12.5 5.2 5.2L20 6.8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+<symbol id="i-spray" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 8h6l1 13H8L9 8Z"/><path d="M10 8V5h4v3"/><path d="M10 5 8 3h4"/><path d="M18 4h.01M20 7h.01M18 10h.01M21 4h.01"/></g></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2c1.6 5.4 3 6.9 8 8-5 1.1-6.4 2.6-8 8-1.6-5.4-3-6.9-8-8 5-1.1 6.4-2.6 8-8Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M19 15c.7 2.2 1.3 2.8 3 3-1.7.5-2.3 1-3 3-.7-2-1.3-2.5-3-3 1.7-.2 2.3-.8 3-3Z" fill="currentColor"/></symbol>
+<symbol id="i-renov" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="13" height="6" rx="2"/><path d="M17 6h3v5h-9v3"/><rect x="10" y="14" width="2.6" height="7" rx="1"/></g></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></g></symbol>
+<symbol id="i-sofa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3"/><path d="M3 13a2 2 0 0 1 4 0v1h10v-1a2 2 0 0 1 4 0v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3Z"/><path d="M6 18v2M18 18v2"/></g></symbol>
+<symbol id="i-bed" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7"/><path d="M3 12h18v6"/><path d="M3 15h18"/><rect x="5" y="8" width="6" height="3" rx="1.4"/><path d="M21 18v-2"/></g></symbol>
+<symbol id="i-rug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 4v16M16 4v16"/><path d="M4 9h4M4 15h4M16 9h4M16 15h4"/></g></symbol>
+<symbol id="i-car" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-3l2-5h12l2 5v3"/><path d="M4 16h16"/><circle cx="8" cy="18" r="2"/><circle cx="16" cy="18" r="2"/><path d="M7 12h10"/></g></symbol>
+<symbol id="i-fact" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20V10l5 3V10l5 3V6l8-3v17"/><path d="M7 16h.01M11 16h.01M16 12h.01M16 16h.01"/></g></symbol>
+<symbol id="i-cycle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v4h-4"/></g></symbol>
+<symbol id="i-ware" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20V9l7-5v16"/><path d="M10 20h11V10l-11-2"/><path d="M14 13h4M14 16h4"/></g></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h4l1.5 4.5-2.4 1.6a12 12 0 0 0 5.8 5.8l1.6-2.4L21 14v4a2 2 0 0 1-2.2 2A17 17 0 0 1 4 5.2 2 2 0 0 1 6 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6l-8-4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m8.5 12 2.4 2.4L15.5 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></g></symbol>
+<symbol id="i-team" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14.4c2.3.2 4.2 1.8 4.9 4.6"/></g></symbol>
+<symbol id="i-tg" viewBox="0 0 24 24"><path d="M21 4 3 11l6 2.5L19 7l-8 8.5.4 5L14 16l7 4V4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+<symbol id="i-quote" viewBox="0 0 24 24"><path d="M9 6C6 7.5 4.5 10 4.5 13.5c0 2.6 1.6 4.5 4 4.5 2 0 3.5-1.5 3.5-3.5S10.6 11 8.7 11c.3-1.6 1.3-2.9 3-3.8L9 6Zm9 0c-3 1.5-4.5 4-4.5 7.5 0 2.6 1.6 4.5 4 4.5 2 0 3.5-1.5 3.5-3.5S19.6 11 17.7 11c.3-1.6 1.3-2.9 3-3.8L18 6Z" fill="currentColor"/></symbol>
+</defs>
+</svg>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="#top" aria-label="YAKTY CLEAN — клининг и химчистка, Казань">
+      <span class="logo-w"><span class="logo-y">YAKTY</span><span class="logo-c">CLEAN</span></span>
+      <svg class="logo-i" aria-hidden="true"><use href="#i-vac"/></svg>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#home">Клининг</a>
+      <a href="#chemistry">Химчистка</a>
+      <a href="#business">Производства</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="hdr-r">
+      <a class="tel" href="tel:+79872283472" data-track="click_phone" data-place="header"><i><svg aria-hidden="true"><use href="#i-phone"/></svg></i><b>8 (987) 228-34-72</b></a>
+      <a class="btn btn--sm" href="tel:+79872283472" data-track="click_phone" data-place="header-btn">Позвонить</a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mmenu">
+        <svg class="m" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mmenu" id="mmenu" aria-label="Мобильное меню" aria-hidden="true">
+  <div class="mmenu-h">
+    <span class="logo"><span class="logo-w"><span class="logo-y">YAKTY</span><span class="logo-c">CLEAN</span></span><svg class="logo-i" aria-hidden="true"><use href="#i-vac"/></svg></span>
+    <button class="mmenu-x" id="mmenuX" aria-label="Закрыть меню">✕</button>
+  </div>
+  <nav>
+    <a class="ml" href="#home"><s>01</s>Клининг</a>
+    <a class="ml" href="#chemistry"><s>02</s>Химчистка</a>
+    <a class="ml" href="#business"><s>03</s>Производства</a>
+    <a class="ml" href="#reviews"><s>04</s>Отзывы</a>
+    <a class="ml" href="#faq"><s>05</s>Вопросы</a>
+    <a class="ml" href="#contacts"><s>06</s>Контакты</a>
+  </nav>
+  <div class="mfoot">
+    <a class="tel" href="tel:+79872283472" data-track="click_phone" data-place="menu" style="color:#fff"><i><svg aria-hidden="true"><use href="#i-phone"/></svg></i><b>8 (987) 228-34-72</b></a>
+    <a class="btn" href="tel:+79872283472" data-track="click_phone" data-place="menu-btn">Позвонить и рассчитать</a>
+    <span id="menuTgSlot"></span>
+  </div>
+</nav>
+
+<main id="main">
+<div id="landing">
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="hero" id="top">
+  <span class="orb orb--1" aria-hidden="true"></span>
+  <span class="orb orb--2" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badges">
+          <span class="badge"><i aria-hidden="true"></i>Казань</span>
+          <span class="badge badge--b"><i aria-hidden="true"></i>Дом и бизнес</span>
+          <span class="badge badge--b"><i aria-hidden="true"></i>По договору</span>
+        </div>
+        <h1>Чистота, которую <span class="scr" data-scramble>видно</span>. Сервис, которому доверяют.</h1>
+        <p class="hero-sub">Химчистка мебели, ковров и автомобилей. Уборка квартир, домов и производств. Команда 8 человек, оборудование Karcher и химия ProBrite. Стоимость фиксируем до начала работ.</p>
+        <div class="hero-cta">
+          <a class="btn" href="tel:+79872283472" data-track="click_phone" data-place="hero"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить и рассчитать</a>
+          <a class="btn btn--ghost" href="#business">Клининг для бизнеса</a>
+        </div>
+        <div class="hero-alt">
+          <a class="tel" href="tel:+79872283472" data-track="click_phone" data-place="hero-tel"><i><svg aria-hidden="true"><use href="#i-phone"/></svg></i><b>8 (987) 228-34-72</b></a>
+          <span id="heroTgSlot"></span>
+          <small>Позвоните — уточним задачу и посчитаем</small>
+        </div>
+        <div class="chips" role="group" aria-label="Быстрый переход к услугам">
+          <a class="chip" href="#chemistry" data-track="click_chemistry_service" data-service-name="Химчистка дивана">Химчистка дивана</a>
+          <a class="chip" href="#chemistry" data-track="click_chemistry_service" data-service-name="Химчистка матраса">Матрас</a>
+          <a class="chip" href="#chemistry" data-track="click_chemistry_service" data-service-name="Химчистка ковра">Ковёр / ковролин</a>
+          <a class="chip" href="#chemistry" data-track="click_chemistry_service" data-service-name="Химчистка авто">Химчистка авто</a>
+          <a class="chip" href="#home" data-track="click_home_service" data-service-name="Генеральная уборка">Генеральная</a>
+          <a class="chip" href="#home" data-track="click_home_service" data-service-name="Уборка после ремонта">После ремонта</a>
+          <a class="chip" href="#business" data-track="click_business_service" data-service-name="Производственный клининг">Производство</a>
+        </div>
+      </div>
+      <div class="hero-vis rv">
+        <div class="ph">
+          <img data-img="images/hero" alt="Светлая гостиная после уборки YAKTY CLEAN" width="736" height="491" fetchpriority="high" decoding="async">
+          <span class="cap"><b>Приёмка вместе с вами</b>Проверяете результат до того, как мы уедем</span>
+        </div>
+        <div class="float float--1"><i><svg aria-hidden="true"><use href="#i-shield"/></svg></i>Смета фиксируется<br>до начала работ</div>
+        <div class="float float--2"><i><svg aria-hidden="true"><use href="#i-clock"/></svg></i>Улитки-сушки:<br>мебель сохнет быстрее</div>
+      </div>
+    </div>
+    <div class="trust rv">
+      <ul>
+        <li><i><svg aria-hidden="true"><use href="#i-check"/></svg></i><div><b>Контроль качества</b><span>проверка на этапах и приёмка с заказчиком</span></div></li>
+        <li><i><svg aria-hidden="true"><use href="#i-shield"/></svg></i><div><b>Работа по договору</b><span>с частными клиентами и компаниями</span></div></li>
+        <li><i><svg aria-hidden="true"><use href="#i-team"/></svg></i><div><b>Команда 8 человек</b><span>своя форма, своё оборудование</span></div></li>
+        <li><i><svg aria-hidden="true"><use href="#i-spark"/></svg></i><div><b>Karcher и ProBrite</b><span>экстракторы, улитки-сушки, проф. химия</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="tk">
+    <span>Химчистка диванов</span><span>Химчистка матрасов</span><span>Химчистка ковров</span><span>Химчистка ковролина</span><span>Химчистка автомобилей</span><span>Генеральная уборка</span><span>Поддерживающая уборка</span><span>После ремонта и ЧП</span><span>Производственный клининг</span>
+    <span>Химчистка диванов</span><span>Химчистка матрасов</span><span>Химчистка ковров</span><span>Химчистка ковролина</span><span>Химчистка автомобилей</span><span>Генеральная уборка</span><span>Поддерживающая уборка</span><span>После ремонта и ЧП</span><span>Производственный клининг</span>
+  </div>
+</div>
+
+<!-- СЕГМЕНТЫ -->
+<section class="sec" id="segments" style="background:var(--bg2)">
+  <div class="wrap">
+    <span class="ov rv">Два сегмента — один стандарт</span>
+    <h2 class="h2 rv">Выберите свой клининг</h2>
+    <div class="segs">
+      <a class="seg seg--home rv" href="#home" data-track="click_home_service" data-service-name="сегмент «Для дома»">
+        <div class="art" aria-hidden="true"><img data-img="images/seg-home" alt="" decoding="async"></div>
+        <span class="go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+        <span class="k">Частным клиентам</span>
+        <h3>Для дома</h3>
+        <p>Квартиры и дома: поддерживающая и генеральная уборка, после ремонта, стройки и ЧП, уборка под ключ. Химчистка мебели, ковров и авто.</p>
+        <ul><li>Поддерживающая</li><li>Генеральная</li><li>После ремонта / ЧП</li><li>Под ключ</li></ul>
+      </a>
+      <a class="seg rv" href="#business" data-track="click_business_service" data-service-name="сегмент «Для бизнеса»">
+        <div class="art" aria-hidden="true"><img data-img="images/seg-biz" alt="" decoding="async"></div>
+        <span class="go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+        <span class="k">Компаниям</span>
+        <h3>Для бизнеса</h3>
+        <p>Уборка на производстве и производственный клининг, объекты после стройки, уборка под ключ. График и состав — под режим объекта.</p>
+        <ul><li>Производства</li><li>После стройки</li><li>Под ключ</li><li>По договору</li></ul>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- КЛИНИНГ -->
+<section class="sec" id="home">
+  <div class="wrap">
+    <span class="ov rv">Частным клиентам и объектам</span>
+    <h2 class="h2 rv">Услуги клининга</h2>
+    <p class="lead rv">Точный список услуг компании. Не публикуем «цены за м²» вслепую: стоимость зависит от состояния объекта, поэтому сначала уточняем задачу — потом называем и фиксируем цифру.</p>
+    <div class="srv-grid">
+      <article class="srv rv">
+        <span class="ic"><svg aria-hidden="true"><use href="#i-spray"/></svg></span>
+        <h3>Поддерживающая уборка</h3>
+        <p>Регулярная чистота без накопления: поверхности, кухня, санузлы, полы. График под вас — раз в неделю, раз в две или разово.</p>
+        <a class="lnk" href="tel:+79872283472" data-track="click_phone" data-place="srv-support">Позвонить и заказать <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="srv rv">
+        <span class="ic"><svg aria-hidden="true"><use href="#i-spark"/></svg></span>
+        <h3>Генеральная уборка</h3>
+        <p>Глубокая проработка всего объекта: кухня и сантехника, труднодоступные места, плинтусы, двери, стекло изнутри.</p>
+        <a class="lnk" href="tel:+79872283472" data-track="click_phone" data-place="srv-general">Позвонить и заказать <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="srv rv">
+        <span class="ic"><svg aria-hidden="true"><use href="#i-renov"/></svg></span>
+        <h3>После ремонта и стройки</h3>
+        <p>Снимаем строительную пыль со всех поверхностей, отмываем окна, удаляем следы краски, затирки и скотча. Готовим объект к заселению или открытию.</p>
+        <a class="lnk" href="tel:+79872283472" data-track="click_phone" data-place="srv-reno">Позвонить и заказать <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="srv rv">
+        <span class="ic"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>
+        <h3>Уборка после ЧП</h3>
+        <p>Последствия протечек, пожаров, аварий: убираем, просушиваем улитками, устраняем запахи. Объём и порядок работ согласуем на месте.</p>
+        <a class="lnk" href="tel:+79872283472" data-track="click_phone" data-place="srv-chp">Позвонить и заказать <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="srv rv">
+        <span class="ic"><svg aria-hidden="true"><use href="#i-home"/></svg></span>
+        <h3>Уборка под ключ</h3>
+        <p>Полный пакет: клининг плюс химчистка мебели, ковров и спальных мест. Один выезд команды — объект готов к жизни или работе.</p>
+        <a class="lnk" href="tel:+79872283472" data-track="click_phone" data-place="srv-turnkey">Позвонить и заказать <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="srv rv">
+        <span class="ic"><svg aria-hidden="true"><use href="#i-fact"/></svg></span>
+        <h3>Производственный клининг</h3>
+        <p>Уборка на производстве и промышленных объектах: полы, рабочие зоны, служебные помещения. Состав и график — по режиму объекта.</p>
+        <a class="lnk" href="tel:+79872283472" data-track="click_phone" data-place="srv-factory">Позвонить и заказать <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+    </div>
+    <p class="note rv">Нужна другая задача? Опишите её по телефону или в мессенджере — честно скажем, берёмся или нет.</p>
+  </div>
+</section>
+
+<!-- ХИМЧИСТКА -->
+<section class="sec dark" id="chemistry">
+  <div class="wrap chem">
+    <div class="chem-l rv">
+      <span class="ov">Химчистка</span>
+      <h2 class="h2">Мебель, ковры, авто — чисто и без разводов</h2>
+      <p class="lead">Экстракторы Karcher Puzzi 8/1 и Sabrina, улитки для ускоренной сушки, химия ProBrite по типу материала. Пятна, запахи, пылевой налёт — убираем, а не маскируем.</p>
+      <div class="ph">
+        <img data-img="images/chem-process" alt="Мастер YAKTY CLEAN выполняет химчистку дивана экстрактором Karcher Puzzi 8/1" width="1600" height="1067" loading="lazy" decoding="async">
+        <span class="cap"><b>Химчистка дивана</b>экстрактор Karcher Puzzi 8/1, химия ProBrite</span>
+      </div>
+      <p class="note">Реальные фото «до/после» добавим в кейсы после съёмки следующих кадров — список в инструкции владельца.</p>
+    </div>
+    <div class="chem-r rv">
+      <article class="cc">
+        <span class="ic"><svg aria-hidden="true"><use href="#i-sofa"/></svg></span>
+        <div><h3>Диваны и кресла</h3><p>Пятна, запахи животных, пылевой налёт. Состав подбираем по типу ткани и цвету обивки.</p></div>
+        <a class="cbtn" href="tel:+79872283472" aria-label="Позвонить и заказать химчистку дивана или кресла" data-track="click_phone" data-place="chem-sofa"><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="cc">
+        <span class="ic"><svg aria-hidden="true"><use href="#i-bed"/></svg></span>
+        <div><h3>Матрасы, кровати, пуфики</h3><p>Глубокая чистка спальных мест: пылевой налёт, пятна, запахи. Подберём состав под аллергиков и детей.</p></div>
+        <a class="cbtn" href="tel:+79872283472" aria-label="Позвонить и заказать химчистку матраса, кровати или пуфика" data-track="click_phone" data-place="chem-mattress"><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="cc">
+        <span class="ic"><svg aria-hidden="true"><use href="#i-spark"/></svg></span>
+        <div><h3>Подушки</h3><p>Чистка и освежение подушек: убираем пылевой налёт и запахи, возвращаем объём и свежесть.</p></div>
+        <a class="cbtn" href="tel:+79872283472" aria-label="Позвонить и заказать химчистку подушек" data-track="click_phone" data-place="chem-pillows"><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="cc">
+        <span class="ic"><svg aria-hidden="true"><use href="#i-rug"/></svg></span>
+        <div><h3>Ковры и ковролин</h3><p>Экстракторная чистка покрытий на месте или с вывозом — уточним формат по фото и типу ворса.</p></div>
+        <a class="cbtn" href="tel:+79872283472" aria-label="Позвонить и заказать химчистку ковра или ковролина" data-track="click_phone" data-place="chem-rug"><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="cc">
+        <span class="ic"><svg aria-hidden="true"><use href="#i-car"/></svg></span>
+        <div><h3>Автомобили</h3><p>Химчистка салона: сиденья, потолок, ковролин багажника. Убираем пятна и запахи, сушим улитками.</p></div>
+        <a class="cbtn" href="tel:+79872283472" aria-label="Позвонить и заказать химчистку автомобиля" data-track="click_phone" data-place="chem-auto"><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- БИЗНЕС -->
+<section class="sec" id="business" style="background:var(--bg2)">
+  <div class="wrap">
+    <span class="ov rv">Компаниям и организациям</span>
+    <h2 class="h2 rv">Коммерческий и промышленный клининг</h2>
+    <div class="biz-grid">
+      <div class="rv">
+        <p class="lead" style="margin-top:0">Работаем по договору с юрлицами и ИП. Не обещаем «всё и сразу»: разбираемся в объекте, затем предлагаем состав, график и стоимость. Офисные и торговые помещения берём в работу по запросу — уточним возможность при звонке.</p>
+        <div class="objs">
+          <article class="obj"><span class="ic"><svg aria-hidden="true"><use href="#i-fact"/></svg></span><h3>Уборка на производстве</h3><p>Цеха, рабочие зоны, служебные помещения — по режиму объекта.</p></article>
+          <article class="obj"><span class="ic"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span><h3>Производственный клининг</h3><p>Плановая уборка производственных площадок, машинная мойка полов.</p></article>
+          <article class="obj"><span class="ic"><svg aria-hidden="true"><use href="#i-renov"/></svg></span><h3>Объекты после стройки</h3><p>Подготовка коммерческих объектов к открытию и эксплуатации.</p></article>
+          <article class="obj"><span class="ic"><svg aria-hidden="true"><use href="#i-ware"/></svg></span><h3>Уборка под ключ</h3><p>Полный пакет для объекта: клининг плюс химчистка мебели и покрытий.</p></article>
+        </div>
+        <ul class="fmts">
+          <li><b>Ф1</b>Разовый выезд — понятный результат к дате.</li>
+          <li><b>Ф2</b>Плановые выезды: еженедельно, 2–3 раза в неделю, ежедневно.</li>
+          <li><b>Ф3</b>Постоянное обслуживание объекта — условия и документы индивидуально.</li>
+        </ul>
+      </div>
+      <div class="ccard rv">
+        <h3>Обсудим ваш объект</h3>
+        <p class="csub">Форм заявок на сайте нет — мы за живой контакт. Позвоните или напишите: уточним режим, площадь и требования, подготовим расчёт и проект договора.</p>
+        <ol class="csteps">
+          <li><b>1</b>Звонок или сообщение: рассказывате про объект и задачу.</li>
+          <li><b>2</b>Выезд или фото-оценка: смотрим состояние и объёмы.</li>
+          <li><b>3</b>Расчёт и договор: фиксируем состав, стоимость и график.</li>
+        </ol>
+        <a class="tel" href="tel:+79872283472" data-track="click_phone" data-place="biz-card"><i><svg aria-hidden="true"><use href="#i-phone"/></svg></i><b>8 (987) 228-34-72</b></a>
+        <div class="row">
+          <span id="bizTgSlot"></span>
+          <span id="bizMailSlot"></span>
+        </div>
+        <p class="docline">Работаем по договору. Документы: <a href="#/privacy">политика ПДн</a> · <a href="#/terms">условия использования</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПОЧЕМУ МЫ -->
+<section class="sec dark" id="why">
+  <div class="wrap">
+    <span class="ov rv">Подтверждённые факты</span>
+    <h2 class="h2 rv">Почему Yakty Clean</h2>
+    <p class="lead rv">Ниже — только то, что компания подтвердила: без выдуманных «лет опыта» и процентов удовлетворённости.</p>
+    <ul class="facts rv">
+      <li><i><svg aria-hidden="true"><use href="#i-team"/></svg></i><div><b>8 человек в команде</b><span>своя брендированная форма</span></div></li>
+      <li><i><svg aria-hidden="true"><use href="#i-spark"/></svg></i><div><b>Karcher Puzzi 8/1, Sabrina</b><span>профессиональные экстракторы</span></div></li>
+      <li><i><svg aria-hidden="true"><use href="#i-clock"/></svg></i><div><b>Улитки-сушки</b><span>мебель и полы сохнут быстрее</span></div></li>
+      <li><i><svg aria-hidden="true"><use href="#i-shield"/></svg></i><div><b>Химия ProBrite</b><span>профессиональные составы</span></div></li>
+      <li><i><svg aria-hidden="true"><use href="#i-check"/></svg></i><div><b>Работа по договору</b><span>с частными клиентами и компаниями</span></div></li>
+    </ul>
+    <ul class="why rv">
+      <li><span class="num">01</span><h3>Приёмка вместе</h3><p>Результат проверяете вы, а не только мы. Замечания фиксируем на месте и закрываем в согласованном порядке.</p></li>
+      <li><span class="num">02</span><h3>Смета без сюрпризов</h3><p>Состав и стоимость подтверждаем до начала работ. Доплаты «по факту» сверх согласованного — не наш метод.</p></li>
+      <li><span class="num">03</span><h3>Средства под материал</h3><p>Подбираем химию по типу поверхности и ткани; учитываем детей, животных и аллергии в помещении.</p></li>
+      <li><span class="num">04</span><h3>Дисциплина сроков</h3><p>Приезжаем в согласованное окно. Для бизнес-объектов — в технологические паузы, без остановки работы.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- КЕЙСЫ -->
+<section class="sec" id="cases">
+  <div class="wrap">
+    <span class="ov rv">Кейсы и результаты</span>
+    <h2 class="h2 rv">Примеры задач</h2>
+    <div class="scr-head rv">
+      <p style="color:var(--grey);font-size:14px;max-width:52ch">Реальные направления работ компании. Фото и факты по каждому проекту добавляются по мере съёмки.</p>
+      <div class="scr-btns"><button type="button" data-scr="cases" data-dir="-1" aria-label="Предыдущие кейсы"><svg aria-hidden="true"><use href="#i-arr-l"/></svg></button><button type="button" data-scr="cases" data-dir="1" aria-label="Следующие кейсы"><svg aria-hidden="true"><use href="#i-arr-r"/></svg></button></div>
+    </div>
+    <div class="scr rv" id="scr-cases" tabindex="0" aria-label="Лента кейсов, прокручивается">
+      <article class="case"><div class="art"><img data-img="images/case-reno" alt="Квартира после уборки после ремонта: чистые окна и поверхности" loading="lazy" decoding="async"></div><div class="case-in"><span class="tp">Квартира · после ремонта</span><h3>Новостройка: из «стройплощадки» в жилое состояние</h3><p><b>Задача:</b> снять строительную пыль, отмыть окна и следы работ до завоза мебели. <b>Результат:</b> объект передан под мебелировку, замечаний при приёмке нет.</p></div></article>
+      <article class="case"><div class="art"><img data-img="images/case-sofa" alt="Чистая обивка дивана после химчистки YAKTY CLEAN" loading="lazy" decoding="async"></div><div class="case-in"><span class="tp">Дом · химчистка</span><h3>Диван и матрас в детской: пятна и запахи ушли</h3><p><b>Задача:</b> деликатная чистка с учётом аллергии у ребёнка. <b>Результат:</b> изделия высохли в тот же день благодаря улиткам-сушкам, реакция не проявилась.</p></div></article>
+      <article class="case"><div class="art"><img data-img="images/case-factory" alt="Пол производственного помещения после машинной мойки" loading="lazy" decoding="async"></div><div class="case-in"><span class="tp">Производство · клининг</span><h3>Мойка полов производственной зоны без остановки работы</h3><p><b>Задача:</b> очистить проходы в технологическое окно. <b>Результат:</b> площадь возвращена в эксплуатацию к началу смены.</p></div></article>
+      <article class="case"><div class="art"><img data-img="images/case-auto" alt="Чистый салон автомобиля после химчистки" loading="lazy" decoding="async"></div><div class="case-in"><span class="tp">Авто · химчистка</span><h3>Салон после сезона: пятна, песок, запах</h3><p><b>Задача:</b> химчистка сидений, потолка и ковролина багажника. <b>Результат:</b> салон просушен улитками и возвращён владельцу в тот же день.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ПРОЦЕСС -->
+<section class="sec" id="process" style="background:var(--bg2)">
+  <div class="wrap">
+    <span class="ov rv">Как мы работаем</span>
+    <h2 class="h2 rv">Пять шагов до результата</h2>
+    <ol class="proc rv">
+      <li><span class="dot">1</span><b>Звонок или сообщение</b><span>Телефон 8 (987) 228-34-72 или мессенджер.</span></li>
+      <li><span class="dot">2</span><b>Уточнение задачи</b><span>Спрашиваем про объект, состояние, пожелания по времени.</span></li>
+      <li><span class="dot">3</span><b>Расчёт и договор</b><span>Фиксируем состав, стоимость и окно работ; работаем по договору.</span></li>
+      <li><span class="dot">4</span><b>Работы</b><span>Команда в форме, Karcher и ProBrite, улитки-сушки при необходимости.</span></li>
+      <li><span class="dot">5</span><b>Приёмка</b><span>Вы проверяете результат; замечания закрываем на месте.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ОТЗЫВЫ: литературные примеры по решению заказчика (см. комментарий в начале
+     файла и #/owner). Перед публикацией заменить на реальные отзывы с согласия
+     авторов: выдуманные отзывы несут риски по закону о рекламе. -->
+<section class="sec" id="reviews">
+  <div class="wrap">
+    <span class="ov rv">Отзывы клиентов</span>
+    <h2 class="h2 rv">Что говорят после приёмки</h2>
+    <div class="scr-head rv">
+      <p style="color:var(--grey);font-size:14px;max-width:52ch">Без приукрашиваний: с мелочами и честными замечаниями, которые мы закрыли.</p>
+      <div class="scr-btns"><button type="button" data-scr="reviews" data-dir="-1" aria-label="Предыдущие отзывы"><svg aria-hidden="true"><use href="#i-arr-l"/></svg></button><button type="button" data-scr="reviews" data-dir="1" aria-label="Следующие отзывы"><svg aria-hidden="true"><use href="#i-arr-r"/></svg></button></div>
+    </div>
+    <div class="scr rv" id="scr-reviews" tabindex="0" aria-label="Лента отзывов, прокручивается">
+      <article class="rev"><svg class="q" aria-hidden="true"><use href="#i-quote"/></svg><p class="txt">Заказывали генеральную уборку двушки на Чистопольской перед приездом родственников. Приехали вдвоём, работали часа четыре, успели всё, включая балкон, про который я забыла сказать по телефону. На подоконнике осталось небольшое пятно — показала, убрали при мне без разговоров. Единственное, хотелось бы слот пораньше утром, но это уже мои придирки.</p><div class="who"><span class="av">А</span><div><div class="nm">Айгуль</div><div class="mt">Ново-Савиновский район</div></div><span class="sv">Генеральная уборка</span></div></article>
+      <article class="rev"><svg class="q" aria-hidden="true"><use href="#i-quote"/></svg><p class="txt">Диван пережил два года жизни с собакой, запах был такой, что гости спрашивали. Честно — не верил, что химчистка поможет, думал менять обивку. Пятна ушли, запах ушёл тоже. Сушили улитками, поэтому высохло к вечеру, а не за сутки как я ожидал. По цене вышло в разы дешевле нового дивана.</p><div class="who"><span class="av">М</span><div><div class="nm">Марат</div><div class="mt">Азино</div></div><span class="sv">Химчистка дивана</span></div></article>
+      <article class="rev"><svg class="q" aria-hidden="true"><use href="#i-quote"/></svg><p class="txt">Брали производственный клининг после монтажа новой линии: пыль металлическая, стружка, следы масла на полу у зоны сборки. Приехали со своим оборудованием, работали в нашу технологическую паузу, к запуску смены всё было готово. Договор и закрывающие оформили без напоминаний.</p><div class="who"><span class="av">Е</span><div><div class="nm">Елена</div><div class="mt">производство, Вахитовский район</div></div><span class="sv">Производственный клининг</span></div></article>
+      <article class="rev"><svg class="q" aria-hidden="true"><use href="#i-quote"/></svg><p class="txt">После ремонта квартира выглядела как филиал стройки: пыль на всех поверхностях, затирка на плитке, скотч на окнах. Ребята возились весь день, вынесли мусор, отмыли даже решётки вентиляции. Устал к вечеру вместе с ними, но результат того стоил. Понравилось, что цену назвали до начала и не меняли.</p><div class="who"><span class="av">Д</span><div><div class="nm">Дмитрий</div><div class="mt">Приволжский район</div></div><span class="sv">Уборка после ремонта</span></div></article>
+      <article class="rev"><svg class="q" aria-hidden="true"><use href="#i-quote"/></svg><p class="txt">Чистили матрас и подушки в детской, у сына аллергия на пыль. Мастер расспросил про реакцию, показал средство ProBrite, объяснил, сколько будет сохнуть и как проветривать. После чистки никакой реакции не было, спим спокойно. Записалась сразу на поддерживающую уборку раз в две недели.</p><div class="who"><span class="av">О</span><div><div class="nm">Ольга</div><div class="mt">жилой массив Горки</div></div><span class="sv">Химчистка матраса</span></div></article>
+      <article class="rev"><svg class="q" aria-hidden="true"><use href="#i-quote"/></svg><p class="txt">Делал химчистку салона автомобиля перед продажей: сиденья, потолок, ковролин багажника. Показал результат до и после, ничего не «замыливал». Запах табака ушёл полностью, покупатель потом отдельно отметил салон. По времени заняло полдня, как и обещали.</p><div class="who"><span class="av">Т</span><div><div class="nm">Тимур</div><div class="mt">Казань</div></div><span class="sv">Химчистка автомобиля</span></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq" style="background:var(--bg2)">
+  <div class="wrap faq">
+    <div class="faq-l rv">
+      <span class="ov">Вопросы и ответы</span>
+      <h2 class="h2">Отвечаем по существу</h2>
+      <div class="box">
+        <b>Не нашли свой вопрос?</b>
+        <p>Проще спросить напрямую — ответим без скриптов и обещаний.</p>
+        <a class="tel" href="tel:+79872283472" data-track="click_phone" data-place="faq"><i><svg aria-hidden="true"><use href="#i-phone"/></svg></i><b>8 (987) 228-34-72</b></a>
+      </div>
+    </div>
+    <div class="rv" id="acc">
+      <div class="acc-i"><button class="acc-b" aria-expanded="false">Как заказать, если на сайте нет формы?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></button><div class="acc-p"><div><p>Позвоните по номеру 8 (987) 228-34-72 или напишите в мессенджер — так даже быстрее: сразу уточним детали, назовём стоимость и забронируем окно. Форму мы убрали осознанно, чтобы не терять время на переписку.</p></div></div></div>
+      <div class="acc-i"><button class="acc-b" aria-expanded="false">Каким оборудованием и химией вы работаете?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></button><div class="acc-p"><div><p>Профессиональные экстракторы Karcher Puzzi 8/1 и Sabrina, улитки-сушки для ускоренной сушки мебели и полов, химия ProBrite. Состав подбираем по типу материала: ткань, ворс, кожа салона — разные средства.</p></div></div></div>
+      <div class="acc-i"><button class="acc-b" aria-expanded="false">Работаете ли по договору?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></button><div class="acc-p"><div><p>Да, заключаем договор и с частными клиентами, и с компаниями. Для юрлиц готовим закрывающие документы по согласованному порядку.</p></div></div></div>
+      <div class="acc-i"><button class="acc-b" aria-expanded="false">Что входит в химчистку автомобиля?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></button><div class="acc-p"><div><p>Химчистка сидений, потолка, дверных карт и ковролина багажника, устранение пятен и запахов, сушка улитками. Точный состав подтверждаем по состоянию салона до начала работ.</p></div></div></div>
+      <div class="acc-i"><button class="acc-b" aria-expanded="false">Почему на сайте нет фиксированных цен?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></button><div class="acc-p"><div><p>Честная цена зависит от состояния объекта, а не только от метров: загрязнение, материал, площадь, срочность. Мы называем цифру после уточнения задачи и фиксируем её — вместо «цены от» с сюрпризами в конце.</p></div></div></div>
+      <div class="acc-i"><button class="acc-b" aria-expanded="false">Безопасна ли химчистка для детей и животных?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></button><div class="acc-p"><div><p>Средства ProBrite подбираем по типу материала и тщательно вымываем остатки экстрактором. Если дома аллергики, малыши или животные — скажите при звонке: подберём состав и подскажем режим проветривания.</p></div></div></div>
+      <div class="acc-i"><button class="acc-b" aria-expanded="false">Сколько сохнет мебель после химчистки?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></button><div class="acc-p"><div><p>Зависит от ткани, влажности и температуры. Улитки-сушки заметно сокращают время: обычно от нескольких часов до суток. Точный ориентир дадим по вашей мебели до начала работ.</p></div></div></div>
+      <div class="acc-i"><button class="acc-b" aria-expanded="false">Можно убрать вечером или в выходные?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></button><div class="acc-p"><div><p>График согласуем при звонке: расскажите про удобное окно — подтвердим его или предложим ближайшие варианты. Для бизнес-объектов часто работаем в технологические паузы и ночью.</p></div></div></div>
+      <div class="acc-i"><button class="acc-b" aria-expanded="false">Что если результат мне не понравится?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></button><div class="acc-p"><div><p>Замечания фиксируем вместе с вами на приёмке и устраняем в согласованном порядке. Нам важен результат, который вы проверили сами, а не отметка о выезде.</p></div></div></div>
+      <div class="acc-i"><button class="acc-b" aria-expanded="false">Какие районы обслуживаете?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></button><div class="acc-p"><div><p>Работаем по Казани. Выезд за город и точную территорию подтвердим при звонке — назовите адрес объекта, сразу скажем возможность и условия.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec cta" id="cta">
+  <div class="wrap">
+    <span class="ov rv">Готовы начать?</span>
+    <h2 class="rv" style="margin-top:12px">Один звонок.<br>Один чистый результат.</h2>
+    <div class="cta-row rv">
+      <a class="btn" href="tel:+79872283472" data-track="click_phone" data-place="cta"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить: 8 (987) 228-34-72</a>
+      <span id="ctaTgSlot"></span>
+      <a class="btn btn--ghost" href="#home">Выбрать услугу</a>
+    </div>
+    <div class="cta-tel rv">
+      <small>Обрабатывая заявку, мы соблюдаем <a href="#/privacy" style="color:var(--blue-l)">политику персональных данных</a>. Cookie и аналитика — только с вашего согласия.</small>
+    </div>
+  </div>
+</section>
+</div><!-- /#landing -->
+
+<!-- ПОЛИТИКА ПДН -->
+<section class="route" id="route-privacy">
+  <div class="wrap doc">
+    <a class="back-lnk" href="#top">← На главную</a>
+    <span class="ov">Документ · дата вступления: <span class="fill">[ДАТА]</span></span>
+    <h2 style="margin-top:12px">Политика обработки персональных данных</h2>
+    <h3>1. Общие положения</h3>
+    <p>Настоящая политика определяет порядок обработки персональных данных пользователей сайта <span class="fill">[УКАЗАТЬ ДОМЕН — запланирован yakty.ru]</span> (далее — Сайт) в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных». Оператор персональных данных — самозанятый <span class="fill">[ФИО ПОЛНОСТЬЮ]</span>, ИНН 026827183315, адрес: <span class="fill">[АДРЕС]</span> (далее — Оператор). Контакт по вопросам обработки ПДн: телефон +7 (987) 228-34-72, e-mail <span class="fill">[EMAIL ОПЕРАТОРА]</span>.</p>
+    <h3>2. Цели и состав обработки</h3>
+    <p>2.1. Сайт не содержит форм ввода персональных данных: обработка ограничена техническими данными (cookie, сведения о браузере) и данными, которые пользователь сообщает сам при звонке или в мессенджере.<br>2.2. Cookie и аналитика используются только после явного согласия пользователя через панель управления cookie; до согласия соответствующие запросы не выполняются.<br>2.3. Данные, сообщённые пользователем при обращении (имя, телефон, детали задачи), обрабатываются для ответа на обращение, согласования состава, стоимости и времени работ, заключения и исполнения договора.<br>2.4. Специальные категории персональных данных и биометрические данные не обрабатываются.</p>
+    <h3>3. Правовые основания</h3>
+    <p>3.1. Согласие субъекта (панель cookie; устное/письменное согласие при обращении).<br>3.2. Договор, заключаемый по инициативе субъекта.<br>3.3. Согласие на маркетинговые сообщения оформляется отдельно и не является условием оказания услуги.</p>
+    <h3>4. Хранение, сроки, передача третьим лицам</h3>
+    <p>4.1. Данные хранятся не дольше, чем это необходимо для целей обработки, либо в срок, установленный законодательством РФ: <span class="fill">[УТОЧНИТЬ СРОКИ]</span>.<br>4.2. Передача третьим лицам — только по требованию закона либо обработчикам по поручению Оператора: <span class="fill">[ПЕРЕЧИСЛИТЬ ФАКТИЧЕСКИХ: хостинг, CRM — ПОСЛЕ ПОДКЛЮЧЕНИЯ]</span>.<br>4.3. Базы данных граждан РФ размещены на территории РФ: <span class="fill">[ПОДТВЕРДИТЬ ЛОКАЛИЗАЦИЮ]</span>. Трансграничная передача не осуществляется.</p>
+    <h3>5. Права субъекта данных</h3>
+    <p>Пользователь вправе запросить сведения об обработке, потребовать уточнения, блокирования или удаления данных, отозвать согласие — обращением на <span class="fill">[EMAIL ОПЕРАТОРА]</span> или по телефону +7 (987) 228-34-72. Отзыв не влияет на законность ранее выполненной обработки.</p>
+    <h3>6. Меры защиты</h3>
+    <p>HTTPS-передача, минимизация собираемых данных, ограничение доступа, ведение журнала обращений. <span class="fill">[ДОПОЛНИТЬ ПОСЛЕ АУДИТА ИНФРАСТРУКТУРЫ]</span></p>
+    <h3>7. Изменения политики</h3>
+    <p>Актуальная редакция всегда доступна на этой странице. Дата вступления в силу: <span class="fill">[ДАТА]</span>.</p>
+  </div>
+</section>
+
+<!-- УСЛОВИЯ ИСПОЛЬЗОВАНИЯ -->
+<section class="route" id="route-terms">
+  <div class="wrap doc">
+    <a class="back-lnk" href="#top">← На главную</a>
+    <span class="ov">Документ · редакция от <span class="fill">[ДАТА]</span></span>
+    <h2 style="margin-top:12px">Условия использования сайта</h2>
+    <h3>1. Общие положения</h3>
+    <p>1.1. Настоящие условия регулируют использование сайта <span class="fill">[УКАЗАТЬ ДОМЕН — запланирован yakty.ru]</span> (далее — Сайт). Используя Сайт, пользователь подтверждает согласие с настоящими условиями.<br>1.2. Владелец Сайта — самозанятый <span class="fill">[ФИО ПОЛНОСТЬЮ]</span>, ИНН 026827183315 (далее — Владелец).<br>1.3. Разработка и техническая поддержка Сайта — студия Роберта Киямова.</p>
+    <h3>2. Информация на Сайте</h3>
+    <p>2.1. Материалы Сайта носят информационный характер и не являются публичной офертой, если прямо не указано иное.<br>2.2. Стоимость, состав и сроки работ определяются индивидуально и фиксируются до начала работ; отношения сторон оформляются договором.<br>2.3. Фотоматериалы Сайта являются собственными материалами Владельца.</p>
+    <h3>3. Обращения и заявки</h3>
+    <p>3.1. Сайт не содержит форм заявок: обращения принимаются по телефону и через мессенджеры.<br>3.2. Сообщая данные при обращении, пользователь выражает согласие на их обработку в объёме и целях, указанных в политике обработки ПДн.<br>3.3. Договор заключается отдельно при взаимном согласии сторон.</p>
+    <h3>4. Cookie и аналитика</h3>
+    <p>4.1. Технические cookie необходимы для работы интерфейса и сохранения выбора пользователя.<br>4.2. Аналитика подключается только после явного согласия через панель управления cookie.</p>
+    <h3>5. Интеллектуальная собственность и ответственность</h3>
+    <p>5.1. Логотип YAKTY CLEAN, тексты и оформление принадлежат Владельцу либо используются с его разрешения.<br>5.2. Владелец не несёт ответственности за временную недоступность Сайта по техническим причинам.<br>5.3. Ответственность сторон по услугам определяется договором и законодательством РФ.</p>
+    <h3>6. Изменения</h3>
+    <p>Актуальная редакция публикуется на этой странице. Редакция от <span class="fill">[ДАТА]</span>.</p>
+  </div>
+</section>
+
+<!-- ИНСТРУКЦИЯ ВЛАДЕЛЬЦУ -->
+<section class="route" id="route-owner">
+  <div class="wrap doc">
+    <a class="back-lnk" href="#top">← На главную</a>
+    <span class="ov">Служебная страница — удалите перед запуском</span>
+    <h2 style="margin-top:12px">Инструкция владельцу</h2>
+    <div class="card-doc">
+      <h3 style="margin-top:0">Если сайт «сломался» после правок</h3>
+      <p>Этот сайт — обычный HTML/CSS/JS без React. Сниппеты вида <b>&lt;motion.div … className=…&gt;</b> (React/Tailwind/Framer Motion) вставлять в index.html НЕЛЬЗЯ: браузер их не понимает, страница и мобильная версия ломаются. Лечение: полностью заменить содержимое index.html на актуальную сборку (Ctrl+A → Delete → вставить → Ctrl+S) и обновить браузер Ctrl+F5. Папку проекта держите без пробелов и кириллицы: yakty-clean-site.</p>
+    </div>
+    <div class="card-doc">
+      <h3 style="margin-top:0">Формы заявок: решение владельца</h3>
+      <p>Формы с сайта УБРАНЫ по решению владельца: конверсия идёт через телефон и мессенджер. Если позже понадобится своя форма — добавьте отдельный блок перед &lt;/main&gt; и подключите свой обработчик; текущая сборка не содержит форм и не отправляет никаких данных пользователей, кроме согласованной аналитики.</p>
+    </div>
+    <div class="card-doc">
+      <h3 style="margin-top:0">Фото: что уже подключено и что доснять</h3>
+      <p><b>Подключено (лежит в папке images, расширения любые — сайт найдёт сам):</b> hero, seg-home, seg-biz, chem-process, case-reno, case-sofa, case-factory, case-auto.</p>
+      <p><b>Доснять позже (положить в images с этими именами):</b> team.jpg (команда 8 человек в форме), process-1.jpg (мастер с оборудованием у входа), process-2.jpg (работа экстрактором крупно), process-3.jpg (приёмка с клиентом или улитка-сушка), equip.jpg (Karcher Puzzi 8/1 и улитки), chem-probrite.jpg (химия ProBrite), og.jpg (обложка 1200×630 для соцсетей). Когда появятся — скажите, вставлю в слоты.</p>
+      <p><b>Важно про case-reno:</b> исходник 5975×3983 и 1,79 МБ — тяжело для мобильного интернета. Ужмите до ширины 1600 px (squoosh.app или iloveimg.com) и перезапишите файл тем же именем.</p>
+    </div>
+    <div class="card-doc">
+      <h3 style="margin-top:0">Осталось уточнить у владельца (скопировать и отправить)</h3>
+      <pre id="ownerMsg">Спасибо за ответы и фото! Сайт обновлён: формы убрали, контакты и соглашения на месте. Для финальной публикации не хватает:
+
+1. ФИО самозанятого полностью (для политики ПДн, условий и подвала); ИНН 026827183315 уже вшит.
+2. Адрес для документов (или «указать город Казань»).
+3. Email для связи и для политики ПДн (если есть).
+4. Ссылка на Telegram (личный или канал) — включим кнопки «Написать в Telegram» по всему сайту.
+5. Ссылки на Instagram и Telegram-канал для подвала.
+6. График работы и выходные/праздники (чтобы написать на сайте честно).
+7. Территория: только Казань или пригород тоже (на каких условиях)?
+8. Регистрация в Роскомнадзоре как оператор ПДн: подавали уведомление или нет?
+9. Политика возврата/переделки при претензиях: формулировка своими словами.
+10. Страховка ответственности: есть или нет (публикуем только если есть).
+11. Реальные отзывы клиентов (скрины/ссылки) с согласием на публикацию — текущие тексты являются литературными примерами.
+12. Логотип в векторе (SVG/AI/PDF), если есть исходник.
+13. Домен yakty.ru: кто покупает и когда — после этого включим canonical и sitemap.
+
+Неизвестное помечайте «не знаю» — на сайте останутся честные заглушки вместо выдуманных данных.</pre>
+      <button class="btn btn--sm" id="copyMsg" type="button">Скопировать сообщение</button>
+    </div>
+    <div class="card-doc">
+      <h3 style="margin-top:0">1. Запуск сайта</h3>
+      <ol><li>Папка yakty-clean-site → внутри index.html и папка images с фото.</li><li>VS Code: File → Open Folder… → папка. Запуск: двойной клик по index.html или расширение Live Server → Open with Live Server.</li><li>Настройки: Ctrl+F «SITE_CONFIG» внизу файла. Телефон и ИНН уже внесены.</li></ol>
+    </div>
+    <div class="card-doc">
+      <h3 style="margin-top:0">2. Аналитика и cookie</h3>
+      <p>До согласия пользователя не выполняется ни один аналитический запрос. События: click_phone, click_telegram, click_home_service, click_business_service, click_chemistry_service. Имена и телефоны в аналитику не передаются. Пример: analytics:{provider:"metrika",id:"НОМЕР"} или {provider:"ga4",id:"G-XXX"}.</p>
+    </div>
+    <div class="card-doc">
+      <h3 style="margin-top:0">3. Юридический чек-лист ДО публикации</h3>
+      <ul class="check">
+        <li>Вписать ФИО самозанятого и адрес в политику (#/privacy), условия (#/terms) и подвал (SITE_CONFIG.company.legalName).</li>
+        <li>Проверить политику и согласия юристом (152-ФЗ): цели, сроки, обработчики, локализация БД в РФ.</li>
+        <li>Уточнить необходимость уведомления Роскомнадзора: форм на сайте нет, но cookie-аналитика и обработка при звонках остаются.</li>
+        <li>Отзывы сейчас — литературные примеры по решению заказчика: заменить на реальные с согласия авторов (риск по закону о рекламе).</li>
+        <li>Если будет реклама — проверить маркировку (ЕРИР) с юристом.</li>
+        <li>После покупки домена yakty.ru: вписать SITE_CONFIG.domain, создать robots.txt и sitemap.xml (тексты ниже).</li>
+        <li>Удалить эту страницу (#/owner) перед запуском.</li>
+      </ul>
+    </div>
+    <div class="card-doc">
+      <h3 style="margin-top:0">4. robots.txt и sitemap.xml (после покупки домена)</h3>
+      <pre># robots.txt
+User-agent: *
+Allow: /
+Disallow: /#/owner
+Sitemap: https://yakty.ru/sitemap.xml</pre>
+      <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
+  &lt;url&gt;&lt;loc&gt;https://yakty.ru/&lt;/loc&gt;&lt;changefreq&gt;weekly&lt;/changefreq&gt;&lt;priority&gt;1.0&lt;/priority&gt;&lt;/url&gt;
+&lt;/urlset&gt;</pre>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr" id="contacts">
+  <div class="wrap">
+    <div class="ftr-mark" aria-hidden="true">Yakty Clean</div>
+    <div class="ftr-grid">
+      <div>
+        <a class="logo" href="#top" aria-label="YAKTY CLEAN — на главную">
+          <span class="logo-w"><span class="logo-y">YAKTY</span><span class="logo-c">CLEAN</span></span>
+          <svg class="logo-i" aria-hidden="true"><use href="#i-vac"/></svg>
+        </a>
+        <p class="about">Клининг и химчистка в Казани: мебель, ковры, авто, квартиры, дома и производства. Команда 8 человек, работа по договору.</p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="#home">Услуги клининга</a></li>
+          <li><a href="#chemistry">Химчистка</a></li>
+          <li><a href="#business">Производства</a></li>
+          <li><a href="#cases">Кейсы</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#faq">Вопросы и ответы</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Документы и согласия</h4>
+        <ul>
+          <li><a href="#/privacy">Политика обработки ПДн</a></li>
+          <li><a href="#/terms">Условия использования</a></li>
+          <li><a href="#/owner">Инструкция владельцу</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <ul>
+          <li><a class="tel" href="tel:+79872283472" data-track="click_phone" data-place="footer" style="color:#fff"><i><svg aria-hidden="true"><use href="#i-phone"/></svg></i><b style="font-size:17px">8 (987) 228-34-72</b></a></li>
+          <li id="tgSlot"></li>
+          <li id="mailSlot"></li>
+          <li id="socSlot"></li>
+          <li style="font-size:13.2px;color:rgba(255,255,255,.82)">Казань <span id="schedSlot"></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-bot">
+      <span>© <span id="year">2025</span> YAKTY CLEAN</span>
+      <span id="legalSlot"></span>
+      <span class="studio" id="studioSlot">Сайт разработан: <b>студия Роберта Киямова</b></span>
+      <a href="#/privacy">Политика ПДн</a>
+      <a href="#/terms">Условия использования</a>
+    </div>
+  </div>
+</footer>
+
+<div class="bar" id="bar">
+  <a class="btn btn--call" href="tel:+79872283472" data-track="click_phone" data-place="bar"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить</a>
+  <span id="barSlot" style="flex:1;display:flex"></span>
+</div>
+
+<div class="cookie" id="cookie" role="region" aria-label="Управление cookie и аналитикой">
+  <p><b style="color:var(--ink)">Cookie и аналитика.</b> Сайт работает без необязательных cookie и без форм сбора данных. Аналитика подключится только после вашего согласия и не влияет на функции.</p>
+  <div class="row">
+    <button class="btn btn--sm" id="ckYes">Разрешить аналитику</button>
+    <button class="btn btn--sm btn--ghost" id="ckNo">Только необходимые</button>
+  </div>
+  <p class="docs">Документы: <a href="#/privacy">политика обработки персональных данных</a> · <a href="#/terms">условия использования сайта</a></p>
+</div>
+
+<script>
+/* ═══════════ КОНФИГУРАЦИЯ САЙТА ═══════════
+   Заполните помеченное «ОБЯЗАТЕЛЬНО» до публикации.
+   Телефон и ИНН внесены по данным владельца. Форм на сайте нет. */
+const SITE_CONFIG = {
+  domain: "https://yakty.ru", // ЗАПЛАНИРОВАН: домен ещё не куплен
+  phone: "79872283472",       // внесён: 8 (987) 228-34-72
+  phoneDisplay: "8 (987) 228-34-72",
+  telegram: "",               // ОБЯЗАТЕЛЬНО УТОЧНИТЬ: "https://t.me/USERNAME" — включит кнопки «Написать в Telegram»
+  email: "",                  // ОБЯЗАТЕЛЬНО УТОЧНИТЬ у владельца
+  socials: [],                // [{name:"Instagram",url:"..."}] — ссылки даст владелец
+  schedule: "",               // ОБЯЗАТЕЛЬНО УТОЧНИТЬ: график и выходные
+  analytics: { provider: "", id: "" },
+  company: { legalName: "", inn: "026827183315", ogrn: "", address: "" }, // legalName = ФИО самозанятого
+  operator: { name: "", email: "" }, // ОБЯЗАТЕЛЬНО: ФИО и email для политики ПДн
+  studio: { name: "студия Роберта Киямова", url: "" } // ссылка-визитка студии (необязательно)
+};
+(function(){
+"use strict";
+var $=function(s,c){return (c||document).querySelector(s)};
+var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ФОТО БЕЗ ПЕРЕИМЕНОВАНИЯ: перебор расширений по базовому имени */
+function mountImgs(){
+  var exts=["jpg","jpeg","jpe","png","webp"];
+  $$("[data-img]").forEach(function(img){
+    var base=img.getAttribute("data-img"),i=0;
+    (function tryNext(){
+      if(i>=exts.length){
+        var box=img.closest(".ph,.art");
+        if(box)box.classList.add("noimg");
+        img.style.display="none";
+        return;
+      }
+      var test=new Image();
+      test.onload=function(){img.src=base+"."+exts[i]};
+      test.onerror=function(){i++;tryNext()};
+      test.src=base+"."+exts[i];
+    })();
+  });
+}
+
+/* аналитика: строго после согласия */
+function consentGet(){try{return localStorage.getItem("yc_consent")}catch(e){return null}}
+function track(ev,params){
+  if(consentGet()!=="analytics"||!SITE_CONFIG.analytics.id)return;
+  var p=Object.assign({event:ev},params||{});
+  window.dataLayer=window.dataLayer||[];window.dataLayer.push(p);
+  try{
+    if(SITE_CONFIG.analytics.provider==="metrika"&&window.ym)window.ym(SITE_CONFIG.analytics.id,"reachGoal",ev,params||{});
+    if(SITE_CONFIG.analytics.provider==="ga4"&&window.gtag)window.gtag("event",ev,params||{});
+  }catch(e){}
+}
+function loadAnalytics(){
+  var a=SITE_CONFIG.analytics;
+  if(consentGet()!=="analytics"||!a.id)return;
+  if(a.provider==="metrika"&&!window.ym){
+    (function(m,e,t,r,i){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*Date.now();
+    var k=e.createElement(t),s=e.getElementsByTagName(t)[0];k.async=1;k.src=r;s.parentNode.insertBefore(k,s)})
+    (window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+    window.ym(a.id,"init",{siteSettings:true});
+  }
+  if(a.provider==="ga4"&&!window.gtag){
+    var sc=document.createElement("script");sc.async=true;sc.src="https://www.googletagmanager.com/gtag/js?id="+a.id;
+    document.head.appendChild(sc);
+    window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};
+    window.gtag("js",new Date());window.gtag("config",a.id,{anonymize_ip:true});
+  }
+}
+
+/* слоты контактов и мессенджера */
+function tgLink(cls,label,place){
+  if(!SITE_CONFIG.telegram)return "";
+  return '<a class="'+cls+'" href="'+SITE_CONFIG.telegram+'" target="_blank" rel="noopener" data-track="click_telegram" data-place="'+place+'">'+label+'</a>';
+}
+function renderContacts(){
+  var c=SITE_CONFIG;
+  $("#tgSlot").innerHTML=c.telegram?'<a style="font-size:14px;color:rgba(255,255,255,.82)" href="'+c.telegram+'" target="_blank" rel="noopener" data-track="click_telegram" data-place="footer">Написать в Telegram</a>':"";
+  $("#mailSlot").innerHTML=c.email?'<a style="font-size:14px;color:rgba(255,255,255,.82)" href="mailto:'+c.email+'">'+c.email+'</a>':"";
+  $("#socSlot").innerHTML=(c.socials&&c.socials.length)?c.socials.map(function(s){return '<a style="font-size:14px;color:rgba(255,255,255,.82)" href="'+s.url+'" target="_blank" rel="noopener">'+s.name+'</a>'}).join(" · "):"";
+  $("#schedSlot").innerHTML=c.schedule?"· "+c.schedule:"";
+  var co=c.company;
+  if(co.legalName&&co.inn){$("#legalSlot").innerHTML="<span>"+co.legalName+" · ИНН "+co.inn+"</span>"}
+  else if(co.inn){$("#legalSlot").innerHTML="<span>Самозанятый · ИНН "+co.inn+"</span>"}
+  else{$("#legalSlot").innerHTML=""}
+  var st=$("#studioSlot");
+  if(st&&c.studio&&c.studio.url){st.innerHTML='Сайт разработан: <a href="'+c.studio.url+'" target="_blank" rel="noopener" style="color:var(--blue-l)"><b>'+c.studio.name+'</b></a>'}
+  /* мессенджер-кнопки в ключевых точках; если Telegram не указан — полезные замены */
+  $("#heroTgSlot").innerHTML=tgLink("lnk-tg","Написать в Telegram","hero")||"";
+  $("#menuTgSlot").innerHTML=tgLink("btn btn--ghost","Написать в Telegram","menu")||"";
+  $("#bizTgSlot").innerHTML=tgLink("btn btn--ghost","Написать в Telegram","biz")||"";
+  $("#bizMailSlot").innerHTML=c.email?'<a class="btn btn--ghost" href="mailto:'+c.email+'">Написать на почту</a>':"";
+  $("#ctaTgSlot").innerHTML=tgLink("btn btn--ghost","Написать в Telegram","cta")||"";
+  $("#barSlot").innerHTML=tgLink("btn","Написать","bar")||'<a class="btn" href="#home">Выбрать услугу</a>';
+}
+
+/* скролл: шапка + нижняя панель */
+var hdr=$("#hdr"),bar=$("#bar"),ticking=false;
+function onScroll(){
+  if(ticking)return;ticking=true;
+  requestAnimationFrame(function(){
+    var y=window.scrollY||window.pageYOffset;
+    hdr.classList.toggle("scrolled",y>8);
+    var show=y>320;
+    bar.classList.toggle("show",show);
+    document.body.classList.toggle("has-bar",show);
+    ticking=false;
+  });
+}
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+
+/* появление при скролле */
+if("IntersectionObserver" in window&&!reduced){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px 0px -6% 0px"});
+  $$(".rv").forEach(function(el,i){el.style.transitionDelay=(i%4)*70+"ms";io.observe(el)});
+}else{$$(".rv").forEach(function(el){el.classList.add("in")})}
+
+/* scramble-акцент */
+(function(){
+  var el=$("[data-scramble]");if(!el||reduced)return;
+  var final=el.textContent,chars="АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЭЮЯ01#%&@";
+  var frame=0,total=26;
+  var iv=setInterval(function(){
+    frame++;
+    var out="";
+    for(var i=0;i<final.length;i++){
+      out+=(frame/total*final.length>i)?final.charAt(i):chars.charAt(Math.floor(Math.random()*chars.length));
+    }
+    el.textContent=out;
+    if(frame>=total){clearInterval(iv);el.textContent=final}
+  },34);
+})();
+
+/* бургер-меню */
+var mmenu=$("#mmenu"),burger=$("#burger");
+function menuOpen(v){
+  mmenu.classList.toggle("open",v);
+  burger.classList.toggle("open",v);
+  burger.setAttribute("aria-expanded",String(v));
+  burger.setAttribute("aria-label",v?"Закрыть меню":"Открыть меню");
+  mmenu.setAttribute("aria-hidden",String(!v));
+  document.body.classList.toggle("lock",v);
+  if(v){var f=$("#mmenuX");if(f)f.focus()}
+}
+burger.addEventListener("click",function(){menuOpen(!mmenu.classList.contains("open"))});
+$("#mmenuX").addEventListener("click",function(){menuOpen(false)});
+$$("#mmenu a.ml").forEach(function(a){a.addEventListener("click",function(){menuOpen(false)})});
+$$("#mmenu a.btn").forEach(function(a){a.addEventListener("click",function(){menuOpen(false)})});
+
+/* маршруты */
+function applyRoute(){
+  var h=location.hash,r="";
+  if(h==="#/privacy")r="privacy";else if(h==="#/terms")r="terms";else if(h==="#/owner")r="owner";
+  if(r)document.body.setAttribute("data-route",r);else document.body.removeAttribute("data-route");
+  if(r){menuOpen(false);window.scrollTo({top:0,behavior:"auto"})}
+}
+window.addEventListener("hashchange",applyRoute);applyRoute();
+
+/* аккордеон */
+$$(".acc-b").forEach(function(b){
+  b.addEventListener("click",function(){
+    var item=b.parentElement,open=item.classList.contains("open");
+    $$(".acc-i.open").forEach(function(i){i.classList.remove("open");$(".acc-b",i).setAttribute("aria-expanded","false")});
+    if(!open){item.classList.add("open");b.setAttribute("aria-expanded","true")}
+  });
+});
+
+/* скроллеры */
+$$("[data-scr]").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    var box=$("#scr-"+btn.getAttribute("data-scr"));
+    if(!box)return;
+    var card=box.firstElementChild;
+    var step=card?card.getBoundingClientRect().width+14:320;
+    box.scrollBy({left:step*Number(btn.getAttribute("data-dir")),behavior:reduced?"auto":"smooth"});
+  });
+});
+function scrStates(){
+  ["cases","reviews"].forEach(function(id){
+    var box=$("#scr-"+id);if(!box)return;
+    var prev=document.querySelector('[data-scr="'+id+'"][data-dir="-1"]');
+    var next=document.querySelector('[data-scr="'+id+'"][data-dir="1"]');
+    var max=box.scrollWidth-box.clientWidth-4;
+    if(prev)prev.disabled=box.scrollLeft<=4;
+    if(next)next.disabled=box.scrollLeft>=max;
+  });
+}
+["cases","reviews"].forEach(function(id){
+  var box=$("#scr-"+id);if(!box)return;
+  box.addEventListener("scroll",scrStates,{passive:true});
+});
+window.addEventListener("resize",scrStates);scrStates();
+
+/* копирование памятки */
+var cm=$("#copyMsg");
+if(cm)cm.addEventListener("click",function(){
+  var txt=$("#ownerMsg").textContent;
+  function done(){cm.textContent="Скопировано ✓";setTimeout(function(){cm.textContent="Скопировать сообщение"},2200)}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,done)}
+  else{var ta=document.createElement("textarea");ta.value=txt;ta.setAttribute("readonly","");ta.style.position="fixed";ta.style.left="-9999px";document.body.appendChild(ta);ta.select();try{document.execCommand("copy")}catch(e){}ta.remove();done()}
+});
+
+/* трекинг кликов */
+document.addEventListener("click",function(e){
+  var el=e.target&&e.target.closest?e.target.closest("[data-track]"):null;
+  if(!el)return;
+  track(el.getAttribute("data-track"),{service:el.getAttribute("data-service-name")||el.getAttribute("data-place")||""});
+});
+
+/* cookie */
+var cookie=$("#cookie");
+function cookieInit(){cookie.classList.toggle("show",!consentGet())}
+function cookieSet(v){try{localStorage.setItem("yc_consent",v)}catch(e){}cookie.classList.remove("show");if(v==="analytics")loadAnalytics()}
+$("#ckYes").addEventListener("click",function(){cookieSet("analytics")});
+$("#ckNo").addEventListener("click",function(){cookieSet("necessary")});
+
+/* финал */
+$("#year").textContent=new Date().getFullYear();
+(function(){
+  var url=SITE_CONFIG.domain?SITE_CONFIG.domain.replace(/\/$/,"")+"/":location.href.split("#")[0];
+  $("#canonical").href=url;$("#ogurl").content=url;
+})();
+renderContacts();
+cookieInit();
+mountImgs();
+})();
+</script>
+</body>
+</html>
