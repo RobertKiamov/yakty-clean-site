@@ -169,8 +169,8 @@ section{scroll-margin-top:calc(var(--hh) + 16px)}
 .orb--2{width:280px;height:280px;background:rgba(77,157,255,.18);bottom:-100px;left:-90px;animation-delay:-6s}
 @media(min-width:960px){.orb--1{width:420px;height:420px}.orb--2{width:340px;height:340px}}
 @keyframes fl{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-40px,30px,0) scale(1.12)}}
-.hero-grid{position:relative;display:grid;grid-template-columns:1fr;gap:clamp(24px,3.6vw,64px)}
-@media(min-width:960px){.hero-grid{grid-template-columns:1.06fr .94fr;align-items:center}}
+.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(24px,3.6vw,64px)} .hero-grid>*{min-width:0}
+@media(min-width:960px){.hero-grid{grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);align-items:center}}
 .hero-badges{display:flex;gap:8px;flex-wrap:wrap}
 .badge{display:inline-flex;align-items:center;gap:7px;font:600 11.5px/1 var(--fb);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 13px;box-shadow:0 4px 14px rgba(6,10,18,.06)}
 .badge i{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 3px rgba(10,108,255,.15);flex:none}
@@ -186,7 +186,7 @@ section{scroll-margin-top:calc(var(--hh) + 16px)}
 @media(min-width:640px){.hero-cta .btn{width:auto}}
 .hero-alt{margin-top:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .hero-alt small{color:var(--grey2);font-size:12.5px;max-width:24ch}
-.chips{display:flex;gap:8px;overflow-x:auto;margin-top:18px;padding-bottom:6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips{display:flex;max-width:100%;min-width:0;gap:8px;overflow-x:auto;margin-top:18px;padding-bottom:6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .chips::-webkit-scrollbar{display:none}
 @media(min-width:960px){.chips{flex-wrap:wrap;overflow-x:visible}}
 .chip{flex:none;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:12px 16px;font:600 13.5px/1 var(--fb);cursor:pointer;transition:border-color .2s,color .2s,transform .2s;min-height:44px;text-decoration:none;display:inline-flex;align-items:center}
@@ -356,7 +356,7 @@ section{scroll-margin-top:calc(var(--hh) + 16px)}
 /* процесс */
 .proc{display:grid;grid-template-columns:1fr;gap:16px;margin-top:clamp(26px,3.8vw,54px);position:relative}
 @media(min-width:900px){.proc{grid-template-columns:repeat(5,1fr);gap:0}.proc::before{content:"";position:absolute;top:26px;left:5%;right:5%;height:2px;background:linear-gradient(90deg,var(--blue),var(--blue-l));opacity:.35}}
-.proc li{position:relative;display:grid;grid-template-columns:52px 1fr;gap:15px;align-items:start;text-align:left}
+.proc li{position:relative;display:grid;grid-template-columns:52px 1fr;grid-template-rows:auto auto;gap:6px 15px;align-items:start;text-align:left} .proc .dot{grid-column:1;grid-row:1/3} .proc b{grid-column:2;grid-row:1} .proc span{grid-column:2;grid-row:2}
 @media(min-width:900px){.proc li{display:block;padding:0 clamp(8px,1.2vw,18px);text-align:center}}
 .proc .dot{width:52px;height:52px;border-radius:16px;background:#fff;border:2px solid var(--blue);color:var(--blue);display:grid;place-items:center;font:800 16px/1 var(--fd);position:relative;z-index:2;box-shadow:0 8px 22px rgba(10,108,255,.2);transition:transform .3s var(--ez),background .2s,color .2s}
 @media(min-width:900px){.proc .dot{margin:0 auto}}
@@ -443,7 +443,7 @@ body[data-route="owner"] #route-owner{display:block}
 /* появление */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ez),transform .7s var(--ez)}
 .rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){
+#heroTgSlot:empty,#ctaTgSlot:empty,#menuTgSlot:empty,#bizTgSlot:empty,#bizMailSlot:empty,#tgSlot:empty,#mailSlot:empty,#socSlot:empty,#schedSlot:empty{display:none} li:empty{display:none} @media(prefers-reduced-motion:reduce){@media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
   .rv{opacity:1;transform:none}
